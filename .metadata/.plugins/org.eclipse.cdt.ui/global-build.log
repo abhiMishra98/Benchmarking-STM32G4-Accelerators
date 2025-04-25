@@ -1,0 +1,21 @@
+21:33:10 **** Incremental Build of configuration Debug for project Benchmark_Accelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/Benchmark_Accelerators/Drivers/DSP_Drivers/Include" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Benchmark_Accelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\Benchmark_Accelerators\STM32G474QETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Benchmark_Accelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\Benchmark_Accelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Benchmark_Accelerators.elf
+ 
+arm-none-eabi-size  Benchmark_Accelerators.elf 
+arm-none-eabi-objdump -h -S Benchmark_Accelerators.elf  > "Benchmark_Accelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  35916	     60	   4100	  40076	   9c8c	Benchmark_Accelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: Benchmark_Accelerators.list
+ 
+21:34:18 **** Incremental Build of configuration Debug for project Benchmark_Accelerators ****
+make -j8 all 
+arm-none-eabi-size  Benchmark_Accelerators.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35916	     60	   4100	  40076	   9c8c	Benchmark_Accelerators.elf
+Finished building: default.size.stdout
+ 

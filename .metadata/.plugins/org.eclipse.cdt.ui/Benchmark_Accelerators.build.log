@@ -1,0 +1,10 @@
+21:34:18 **** Incremental Build of configuration Debug for project Benchmark_Accelerators ****
+make -j8 all 
+arm-none-eabi-size  Benchmark_Accelerators.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35916	     60	   4100	  40076	   9c8c	Benchmark_Accelerators.elf
+Finished building: default.size.stdout
+ 
+
+21:34:18 Build Finished. 0 errors, 0 warnings. (took 409ms)
+
