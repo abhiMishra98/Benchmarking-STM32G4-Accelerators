@@ -24,6 +24,7 @@
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
+extern DMA_HandleTypeDef hdma_fmac_write;
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
@@ -171,6 +172,25 @@ void HAL_FMAC_MspInit(FMAC_HandleTypeDef* hfmac)
   /* USER CODE END FMAC_MspInit 0 */
     /* Peripheral clock enable */
     __HAL_RCC_FMAC_CLK_ENABLE();
+
+    /* FMAC DMA Init */
+    /* FMAC_WRITE Init */
+    hdma_fmac_write.Instance = DMA1_Channel1;
+    hdma_fmac_write.Init.Request = DMA_REQUEST_FMAC_WRITE;
+    hdma_fmac_write.Init.Direction = DMA_MEMORY_TO_PERIPH;
+    hdma_fmac_write.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_fmac_write.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_fmac_write.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+    hdma_fmac_write.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
+    hdma_fmac_write.Init.Mode = DMA_NORMAL;
+    hdma_fmac_write.Init.Priority = DMA_PRIORITY_LOW;
+    if (HAL_DMA_Init(&hdma_fmac_write) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(hfmac,hdmaIn,hdma_fmac_write);
+
     /* FMAC interrupt Init */
     HAL_NVIC_SetPriority(FMAC_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(FMAC_IRQn);
@@ -196,6 +216,9 @@ void HAL_FMAC_MspDeInit(FMAC_HandleTypeDef* hfmac)
   /* USER CODE END FMAC_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_FMAC_CLK_DISABLE();
+
+    /* FMAC DMA DeInit */
+    HAL_DMA_DeInit(hfmac->hdmaIn);
 
     /* FMAC interrupt DeInit */
     HAL_NVIC_DisableIRQ(FMAC_IRQn);

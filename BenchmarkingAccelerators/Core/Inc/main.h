@@ -46,16 +46,17 @@ extern "C" {
 
 #define BLOCK_SIZE 1
 #define FREQ_HZ     100   // sine wave frequency
-#define SAMPLE_RATE 1000  // 1 kHz sample rate
+#define SAMPLE_RATE 10000  // 1 kHz sample rate
 #define BLOCKLENGTH 1
-#define NUMTAPS 	21
+#define NUMTAPS 	22
 #define FIR_STATE_LEN (BLOCKLENGTH + NUMTAPS - 1)
 
 extern q15_t inputSample[BLOCK_SIZE];
 extern q15_t filteredSample[BLOCK_SIZE];
 extern arm_fir_instance_q15 A;
 extern uint16_t blockLen;
-extern int16_t firStateQ15[FIR_STATE_LEN];
+extern q15_t firStateQ15[FIR_STATE_LEN];
+extern int16_t lut[256];
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

@@ -1,5 +1,5 @@
 #include "fir_coeffs.h"
 
-const int16_t fir_coeffs[NUM_TAPS] = {
-    0, -70, -207, -380, -405, 0, 1041, 2668, 4505, 5968, 6526, 5968, 4505, 2668, 1041, 0, -405, -380, -207, -70, 0
+int16_t fir_coeffs[NUM_TAPS] = {
+    32767
 };

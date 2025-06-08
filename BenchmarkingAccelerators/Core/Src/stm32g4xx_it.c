@@ -56,6 +56,7 @@
 
 /* External variables --------------------------------------------------------*/
 extern DAC_HandleTypeDef hdac1;
+extern DMA_HandleTypeDef hdma_fmac_write;
 extern FMAC_HandleTypeDef hfmac;
 extern TIM_HandleTypeDef htim6;
 /* USER CODE BEGIN EV */
@@ -187,6 +188,19 @@ void SysTick_Handler(void) {
 /******************************************************************************/
 
 /**
+ * @brief This function handles DMA1 channel1 global interrupt.
+ */
+void DMA1_Channel1_IRQHandler(void) {
+	/* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
+
+	/* USER CODE END DMA1_Channel1_IRQn 0 */
+	HAL_DMA_IRQHandler(&hdma_fmac_write);
+	/* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
+
+	/* USER CODE END DMA1_Channel1_IRQn 1 */
+}
+
+/**
  * @brief This function handles EXTI line[15:10] interrupts.
  */
 void EXTI15_10_IRQHandler(void) {
@@ -204,17 +218,29 @@ void EXTI15_10_IRQHandler(void) {
  */
 void TIM6_DAC_IRQHandler(void) {
 	/* USER CODE BEGIN TIM6_DAC_IRQn 0 */
+	static int lutIndex = 0;
+//	For FMAC implementation [polling]
+	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
+		int16_t result = hfmac.Instance->RDATA;
+		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4); // scale to 12-bit
+		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
+	}
+	HAL_StatusTypeDef status;
+	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+		hfmac.Instance->WDATA = lut[lutIndex++];
+	}
+
+//For FIR Implementation
+//	arm_fir_q15(&A, &lut[lutIndex++], filteredSample, BLOCK_SIZE);
+//	q15_t q15_val = filteredSample[0];
+//	uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); //Scale to 0–4095
+//	HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val);
+//
+	if (lutIndex == 255) {
+		lutIndex = 0;
+	}
 
 	/* USER CODE END TIM6_DAC_IRQn 0 */
-	static uint32_t sampleIndex = 0;
-	float t = (float) sampleIndex++ / SAMPLE_RATE;
-	float val = sinf(2 * PI * FREQ_HZ * t);  // -1.0 to 1.0
-	inputSample[0] = (int16_t) (val * 32767);    // Q15 scaling
-
-	arm_fir_q15(&A, inputSample, filteredSample, BLOCK_SIZE);
-	int16_t q15_val = filteredSample[0];
-	uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); // Scale to 0–4095
-	HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val);
 
 	/* USER CODE BEGIN TIM6_DAC_IRQn 1 */
 

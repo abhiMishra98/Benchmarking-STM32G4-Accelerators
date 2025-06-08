@@ -1,0 +1,21 @@
+2025-05-31 00:36:24,387 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2025-05-31 00:36:26,231 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 3113mS.
+2025-05-31 00:36:26,232 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 1mS.
+2025-05-31 00:36:26,234 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2025-05-31 00:43:24,850 [INFO] WebApp:354 - JxBrowser engine has been closed 
+2025-05-31 00:43:27,740 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] [Fatal Error] :1:1: Premature end of file.
+2025-05-31 00:43:27,740 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2025-05-31 00:43:28,723 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] [Fatal Error] :1:1: Premature end of file.
+2025-05-31 00:43:28,723 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2025-05-31 00:43:29,708 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] [Fatal Error] :1:1: Premature end of file.
+2025-05-31 00:43:29,708 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2025-05-31 00:43:30,718 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] [Fatal Error] :1:1: Premature end of file.
+2025-05-31 00:43:30,718 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2025-05-31 00:43:31,715 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] [Fatal Error] :1:1: Premature end of file.
+2025-05-31 00:43:31,715 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2025-05-31 00:43:32,720 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] [Fatal Error] :1:1: Premature end of file.
+2025-05-31 00:43:32,720 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2025-05-31 00:43:33,716 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] [Fatal Error] :1:1: Premature end of file.
+2025-05-31 00:43:33,716 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2025-05-31 00:43:34,706 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] [Fatal Error] :1:1: Premature end of file.
+2025-05-31 00:43:34,707 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
