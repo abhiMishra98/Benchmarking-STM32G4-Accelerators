@@ -22,6 +22,7 @@
 #include "stm32g4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "fmac_cmsis_interface.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -218,7 +219,7 @@ void EXTI15_10_IRQHandler(void) {
  */
 void TIM6_DAC_IRQHandler(void) {
 	/* USER CODE BEGIN TIM6_DAC_IRQn 0 */
-	static int lutIndex = 0;
+	static uint8_t lutIndex = 0;
 //	For FMAC implementation [polling]
 	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
 		int16_t result = hfmac.Instance->RDATA;
@@ -229,6 +230,7 @@ void TIM6_DAC_IRQHandler(void) {
 	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
 		hfmac.Instance->WDATA = lut[lutIndex++];
 	}
+//	fmac_FilterSetDAC_TimerISR(&hfmac, &hdac1, &lutIndex);
 
 //For FIR Implementation
 //	arm_fir_q15(&A, &lut[lutIndex++], filteredSample, BLOCK_SIZE);

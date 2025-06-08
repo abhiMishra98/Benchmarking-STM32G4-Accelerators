@@ -1,0 +1,32 @@
+/*
+ * fmac_cmsis_interface.h
+ *
+ *  Created on: Jun 8, 2025
+ *      Author: abhim
+ */
+
+#ifndef INC_FMAC_CMSIS_INTERFACE_H_
+#define INC_FMAC_CMSIS_INTERFACE_H_
+
+extern int16_t lut[256];
+
+void cmsis_q15_init(arm_fir_instance_q15 *S, uint16_t numTaps,
+		const q15_t *pCoeffs, q15_t *pState, uint32_t blockSize);
+
+void fmac_config(FMAC_FilterConfigTypeDef *sFmacConfig, uint8_t ipBaseAddr,
+		uint8_t ipBufferSize, uint32_t ipThreshold, uint8_t coeffBaseAddress,
+		uint8_t CoeffBufferSize, uint8_t opBaseAddress, uint8_t opBufferSize,
+		uint32_t opThreshold, int16_t *pCoeffA, uint8_t coeffASize,
+		int16_t *pCoeffB, uint8_t coeffBSize, uint8_t ipAccess,
+		uint8_t opAccess, uint32_t clip, uint32_t filter, uint8_t P, uint8_t Q,
+		uint8_t R);
+
+void fmac_StartWithTimerIRQ(FMAC_FilterConfigTypeDef *sFmacConfig);
+
+void cmsis_StartTimerIRQ();
+
+void cmsis_FilterSetDAC_TimerISR();
+
+void fmac_FilterSetDAC_TimerISR();
+
+#endif /* INC_FMAC_CMSIS_INTERFACE_H_ */

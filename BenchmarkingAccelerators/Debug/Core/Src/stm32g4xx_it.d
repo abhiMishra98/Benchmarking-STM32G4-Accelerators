@@ -31,7 +31,7 @@ Core/Src/stm32g4xx_it.o: ../Core/Src/stm32g4xx_it.c ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
  D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h \
  ../Drivers/CMSIS/Include/cmsis_compiler.h ../Core/Inc/fir_coeffs.h \
- ../Core/Inc/stm32g4xx_it.h
+ ../Core/Inc/stm32g4xx_it.h ../Core/Inc/fmac_cmsis_interface.h
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -67,3 +67,4 @@ D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DS
 ../Drivers/CMSIS/Include/cmsis_compiler.h:
 ../Core/Inc/fir_coeffs.h:
 ../Core/Inc/stm32g4xx_it.h:
+../Core/Inc/fmac_cmsis_interface.h:

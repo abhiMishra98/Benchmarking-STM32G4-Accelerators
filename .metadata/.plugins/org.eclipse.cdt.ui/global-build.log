@@ -2336,3 +2336,1630 @@ Finished building: default.size.stdout
  
 Finished building: BenchmarkingAccelerators.list
  
+11:16:12 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fir_coeffs.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fir_coeffs.d" -MT"Core/Src/fir_coeffs.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fir_coeffs.o"
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_hal_msp.d" -MT"Core/Src/stm32g4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32g4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32g4xx.d" -MT"Core/Src/system_stm32g4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32g4xx.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:185:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  185 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/stm32g4xx_it.c:229:59: warning: comparison of constant '2' with boolean expression is always true [-Wbool-compare]
+  229 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |                                                           ^~
+../Core/Src/stm32g4xx_it.c:228:27: warning: unused variable 'status' [-Wunused-variable]
+  228 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14632	    536	   1880	  17048	   4298	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+11:35:36 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:185:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  185 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14632	    536	   1880	  17048	   4298	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+11:42:20 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:185:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  185 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14632	    536	   1880	  17048	   4298	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+11:42:27 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14632	    536	   1880	  17048	   4298	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+12:40:28 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_config':
+../Core/Src/fmac_cmsis_interface.c:54:34: warning: variable 'sFmacConfig' set but not used [-Wunused-but-set-variable]
+   54 |         FMAC_FilterConfigTypeDef sFmacConfig;
+      |                                  ^~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:149:44: error: 'sFmacConfig' undeclared (first use in this function); did you mean 'fmac_config'?
+  149 |         if (HAL_FMAC_FilterConfig(&hfmac, &sFmacConfig) != HAL_OK)
+      |                                            ^~~~~~~~~~~
+      |                                            fmac_config
+../Core/Src/main.c:149:44: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:154:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  154 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:41:26 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:156:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  156 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14592	    536	   1880	  17008	   4270	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+12:45:40 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:21: error: incompatible type for argument 1 of 'fmac_config'
+  110 |         fmac_config(&sFmacConfig, 51, 100, 1, 0, 1, 151, 100, 1, NULL, 0, fir_coeffs,
+      |                     ^~~~~~~~~~~~
+      |                     |
+      |                     FMAC_FilterConfigTypeDef *
+In file included from ../Core/Src/main.c:24:
+../Core/Inc/fmac_cmsis_interface.h:16:43: note: expected 'FMAC_FilterConfigTypeDef' but argument is of type 'FMAC_FilterConfigTypeDef *'
+   16 | void fmac_config(FMAC_FilterConfigTypeDef sFmacConfig, uint8_t ipBaseAddr,
+      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/main.c:160:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  160 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:45:59 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_config':
+../Core/Src/fmac_cmsis_interface.c:56:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   56 |         sFmacConfig.CoeffBaseAddress = coeffBaseAddress;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:58:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   58 |         sFmacConfig.CoeffBufferSize = CoeffBufferSize;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:60:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   60 |         sFmacConfig.InputBaseAddress = ipBaseAddr;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:62:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   62 |         sFmacConfig.InputBufferSize = ipBufferSize;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:64:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   64 |         sFmacConfig.InputThreshold = ipThreshold;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:66:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   66 |         sFmacConfig.OutputBaseAddress = opBaseAddress;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:68:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   68 |         sFmacConfig.OutputBufferSize = opBufferSize;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:70:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   70 |         sFmacConfig.OutputThreshold = opThreshold;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:72:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   72 |         sFmacConfig.pCoeffA = pCoeffA;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:73:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   73 |         sFmacConfig.CoeffASize = coeffASize;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:75:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   75 |         sFmacConfig.pCoeffB = pCoeffB;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:77:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   77 |         sFmacConfig.CoeffBSize = coeffBSize;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:79:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   79 |         sFmacConfig.Filter = filter;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:81:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   81 |         sFmacConfig.InputAccess = ipAccess;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:83:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   83 |         sFmacConfig.OutputAccess = opAccess;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:85:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   85 |         sFmacConfig.Clip = clip;
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:87:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   87 |         sFmacConfig.P = P; //Number of taps[FIR]
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:89:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   89 |         sFmacConfig.Q = Q; //Don't care [FIR]
+      |                    ^
+      |                    ->
+../Core/Src/fmac_cmsis_interface.c:91:20: error: 'sFmacConfig' is a pointer; did you mean to use '->'?
+   91 |         sFmacConfig.R = R; //Gain[FIR]
+      |                    ^
+      |                    ->
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:160:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  160 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/fmac_cmsis_interface.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:46:59 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14840	    536	   1880	  17256	   4368	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+12:47:31 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14840	    536	   1880	  17256	   4368	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+12:48:30 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:160:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  160 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14676	    536	   1880	  17092	   42c4	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+12:49:10 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14676	    536	   1880	  17092	   42c4	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+12:50:00 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:188:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  188 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+D:/Program Files/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Debug/../Core/Src/main.c:68: multiple definition of `lut'; ./Core/Src/fmac_cmsis_interface.o:D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Debug/../Core/Src/fmac_cmsis_interface.c:14: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:65: BenchmarkingAccelerators.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:50:33 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+D:/Program Files/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o:D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Debug/../Core/Src/main.c:68: multiple definition of `lut'; ./Core/Src/fmac_cmsis_interface.o:D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Debug/../Core/Src/fmac_cmsis_interface.c:14: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:65: BenchmarkingAccelerators.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:50:43 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14524	    536	   1824	  16884	   41f4	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+12:50:48 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14524	    536	   1824	  16884	   41f4	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+12:51:49 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:160:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  160 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/stm32g4xx_it.c:230:59: warning: comparison of constant '2' with boolean expression is always true [-Wbool-compare]
+  230 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |                                                           ^~
+../Core/Src/stm32g4xx_it.c:229:27: warning: unused variable 'status' [-Wunused-variable]
+  229 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14524	    536	   1824	  16884	   41f4	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+12:52:20 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:9: warning: implicit declaration of function 'fmac_config' [-Wimplicit-function-declaration]
+  110 |         fmac_config(&sFmacConfig, 51, 100, 1, 0, 1, 151, 100, 1, NULL, 0,
+      |         ^~~~~~~~~~~
+../Core/Src/main.c:160:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  160 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14688	    536	   1824	  17048	   4298	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+12:57:29 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_StartWithTimerIRQ':
+../Core/Src/fmac_cmsis_interface.c:96:36: error: 'hfmac' undeclared (first use in this function)
+   96 |         if (HAL_FMAC_FilterConfig(&hfmac, sFmacConfig) != HAL_OK)
+      |                                    ^~~~~
+../Core/Src/fmac_cmsis_interface.c:96:36: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/fmac_cmsis_interface.c:101:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  101 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:103:32: error: 'hdac1' undeclared (first use in this function)
+  103 |                 HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
+      |                                ^~~~~
+../Core/Src/fmac_cmsis_interface.c:104:40: error: 'htim6' undeclared (first use in this function)
+  104 |                 HAL_TIM_Base_Start_IT(&htim6);
+      |                                        ^~~~~
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/stm32g4xx_it.c:230:59: warning: comparison of constant '2' with boolean expression is always true [-Wbool-compare]
+  230 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |                                                           ^~
+../Core/Src/stm32g4xx_it.c:229:27: warning: unused variable 'status' [-Wunused-variable]
+  229 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/fmac_cmsis_interface.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:9: warning: implicit declaration of function 'fmac_config' [-Wimplicit-function-declaration]
+  110 |         fmac_config(&sFmacConfig, 51, 100, 1, 0, 1, 151, 100, 1, NULL, 0,
+      |         ^~~~~~~~~~~
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:04:13 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_StartWithTimerIRQ':
+../Core/Src/fmac_cmsis_interface.c:97:35: warning: passing argument 1 of 'HAL_FMAC_FilterConfig' from incompatible pointer type [-Wincompatible-pointer-types]
+   97 |         if (HAL_FMAC_FilterConfig(&hfmac, sFmacConfig) != HAL_OK)
+      |                                   ^~~~~~
+      |                                   |
+      |                                   FMAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:660:61: note: expected 'FMAC_HandleTypeDef *' but argument is of type 'FMAC_HandleTypeDef **'
+  660 | HAL_StatusTypeDef HAL_FMAC_FilterConfig(FMAC_HandleTypeDef *hfmac, FMAC_FilterConfigTypeDef *pConfig);
+      |                                         ~~~~~~~~~~~~~~~~~~~~^~~~~
+../Core/Src/fmac_cmsis_interface.c:100:32: warning: passing argument 1 of 'HAL_FMAC_FilterPreload' from incompatible pointer type [-Wincompatible-pointer-types]
+  100 |         HAL_FMAC_FilterPreload(&hfmac, &lut[0], 1, NULL, 0);
+      |                                ^~~~~~
+      |                                |
+      |                                FMAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:662:62: note: expected 'FMAC_HandleTypeDef *' but argument is of type 'FMAC_HandleTypeDef **'
+  662 | HAL_StatusTypeDef HAL_FMAC_FilterPreload(FMAC_HandleTypeDef *hfmac, int16_t *pInput, uint8_t InputSize,
+      |                                          ~~~~~~~~~~~~~~~~~~~~^~~~~
+../Core/Src/fmac_cmsis_interface.c:102:44: warning: passing argument 1 of 'HAL_FMAC_FilterStart' from incompatible pointer type [-Wincompatible-pointer-types]
+  102 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            FMAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:60: note: expected 'FMAC_HandleTypeDef *' but argument is of type 'FMAC_HandleTypeDef **'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                        ~~~~~~~~~~~~~~~~~~~~^~~~~
+../Core/Src/fmac_cmsis_interface.c:102:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  102 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/stm32g4xx_it.c:230:59: warning: comparison of constant '2' with boolean expression is always true [-Wbool-compare]
+  230 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |                                                           ^~
+../Core/Src/stm32g4xx_it.c:229:27: warning: unused variable 'status' [-Wunused-variable]
+  229 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+../Core/Src/fmac_cmsis_interface.c:104:32: error: 'hdac1' undeclared (first use in this function)
+  104 |                 HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
+      |                                ^~~~~
+../Core/Src/fmac_cmsis_interface.c:104:32: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/fmac_cmsis_interface.c:105:40: error: 'htim6' undeclared (first use in this function)
+  105 |                 HAL_TIM_Base_Start_IT(&htim6);
+      |                                        ^~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:9: warning: implicit declaration of function 'fmac_config' [-Wimplicit-function-declaration]
+  110 |         fmac_config(&sFmacConfig, 51, 100, 1, 0, 1, 151, 100, 1, NULL, 0,
+      |         ^~~~~~~~~~~
+../Core/Src/main.c:120:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  120 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/fmac_cmsis_interface.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:04:59 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_StartWithTimerIRQ':
+../Core/Src/fmac_cmsis_interface.c:97:35: warning: passing argument 1 of 'HAL_FMAC_FilterConfig' from incompatible pointer type [-Wincompatible-pointer-types]
+   97 |         if (HAL_FMAC_FilterConfig(&hfmac, sFmacConfig) != HAL_OK)
+      |                                   ^~~~~~
+      |                                   |
+      |                                   FMAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:660:61: note: expected 'FMAC_HandleTypeDef *' but argument is of type 'FMAC_HandleTypeDef **'
+  660 | HAL_StatusTypeDef HAL_FMAC_FilterConfig(FMAC_HandleTypeDef *hfmac, FMAC_FilterConfigTypeDef *pConfig);
+      |                                         ~~~~~~~~~~~~~~~~~~~~^~~~~
+../Core/Src/fmac_cmsis_interface.c:100:32: warning: passing argument 1 of 'HAL_FMAC_FilterPreload' from incompatible pointer type [-Wincompatible-pointer-types]
+  100 |         HAL_FMAC_FilterPreload(&hfmac, &lut[0], 1, NULL, 0);
+      |                                ^~~~~~
+      |                                |
+      |                                FMAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:662:62: note: expected 'FMAC_HandleTypeDef *' but argument is of type 'FMAC_HandleTypeDef **'
+  662 | HAL_StatusTypeDef HAL_FMAC_FilterPreload(FMAC_HandleTypeDef *hfmac, int16_t *pInput, uint8_t InputSize,
+      |                                          ~~~~~~~~~~~~~~~~~~~~^~~~~
+../Core/Src/fmac_cmsis_interface.c:102:44: warning: passing argument 1 of 'HAL_FMAC_FilterStart' from incompatible pointer type [-Wincompatible-pointer-types]
+  102 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            FMAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:60: note: expected 'FMAC_HandleTypeDef *' but argument is of type 'FMAC_HandleTypeDef **'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                        ~~~~~~~~~~~~~~~~~~~~^~~~~
+../Core/Src/fmac_cmsis_interface.c:102:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  102 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:104:32: error: 'hdac1' undeclared (first use in this function)
+  104 |                 HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
+      |                                ^~~~~
+../Core/Src/fmac_cmsis_interface.c:104:32: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/fmac_cmsis_interface.c:105:39: warning: passing argument 1 of 'HAL_TIM_Base_Start_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  105 |                 HAL_TIM_Base_Start_IT(&htim6);
+      |                                       ^~~~~~
+      |                                       |
+      |                                       TIM_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:344,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h:2354:60: note: expected 'TIM_HandleTypeDef *' but argument is of type 'TIM_HandleTypeDef **'
+ 2354 | HAL_StatusTypeDef HAL_TIM_Base_Start_IT(TIM_HandleTypeDef *htim);
+      |                                         ~~~~~~~~~~~~~~~~~~~^~~~
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/stm32g4xx_it.c:230:59: warning: comparison of constant '2' with boolean expression is always true [-Wbool-compare]
+  230 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |                                                           ^~
+../Core/Src/stm32g4xx_it.c:229:27: warning: unused variable 'status' [-Wunused-variable]
+  229 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/fmac_cmsis_interface.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:05:55 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_StartWithTimerIRQ':
+../Core/Src/fmac_cmsis_interface.c:98:35: warning: passing argument 1 of 'HAL_FMAC_FilterConfig' from incompatible pointer type [-Wincompatible-pointer-types]
+   98 |         if (HAL_FMAC_FilterConfig(&hfmac, sFmacConfig) != HAL_OK)
+      |                                   ^~~~~~
+      |                                   |
+      |                                   FMAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:660:61: note: expected 'FMAC_HandleTypeDef *' but argument is of type 'FMAC_HandleTypeDef **'
+  660 | HAL_StatusTypeDef HAL_FMAC_FilterConfig(FMAC_HandleTypeDef *hfmac, FMAC_FilterConfigTypeDef *pConfig);
+      |                                         ~~~~~~~~~~~~~~~~~~~~^~~~~
+../Core/Src/fmac_cmsis_interface.c:101:32: warning: passing argument 1 of 'HAL_FMAC_FilterPreload' from incompatible pointer type [-Wincompatible-pointer-types]
+  101 |         HAL_FMAC_FilterPreload(&hfmac, &lut[0], 1, NULL, 0);
+      |                                ^~~~~~
+      |                                |
+      |                                FMAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:662:62: note: expected 'FMAC_HandleTypeDef *' but argument is of type 'FMAC_HandleTypeDef **'
+  662 | HAL_StatusTypeDef HAL_FMAC_FilterPreload(FMAC_HandleTypeDef *hfmac, int16_t *pInput, uint8_t InputSize,
+      |                                          ~~~~~~~~~~~~~~~~~~~~^~~~~
+../Core/Src/fmac_cmsis_interface.c:103:44: warning: passing argument 1 of 'HAL_FMAC_FilterStart' from incompatible pointer type [-Wincompatible-pointer-types]
+  103 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            FMAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:60: note: expected 'FMAC_HandleTypeDef *' but argument is of type 'FMAC_HandleTypeDef **'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                        ~~~~~~~~~~~~~~~~~~~~^~~~~
+../Core/Src/fmac_cmsis_interface.c:103:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  103 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:105:31: warning: passing argument 1 of 'HAL_DAC_Start' from incompatible pointer type [-Wincompatible-pointer-types]
+  105 |                 HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
+      |                               ^~~~~~
+      |                               |
+      |                               DAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:248,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dac.h:553:52: note: expected 'DAC_HandleTypeDef *' but argument is of type 'DAC_HandleTypeDef **'
+  553 | HAL_StatusTypeDef HAL_DAC_Start(DAC_HandleTypeDef *hdac, uint32_t Channel);
+      |                                 ~~~~~~~~~~~~~~~~~~~^~~~
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/fmac_cmsis_interface.c:106:39: warning: passing argument 1 of 'HAL_TIM_Base_Start_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+  106 |                 HAL_TIM_Base_Start_IT(&htim6);
+      |                                       ^~~~~~
+      |                                       |
+      |                                       TIM_HandleTypeDef **
+../Core/Src/stm32g4xx_it.c:230:59: warning: comparison of constant '2' with boolean expression is always true [-Wbool-compare]
+  230 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |                                                           ^~
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:344,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h:2354:60: note: expected 'TIM_HandleTypeDef *' but argument is of type 'TIM_HandleTypeDef **'
+ 2354 | HAL_StatusTypeDef HAL_TIM_Base_Start_IT(TIM_HandleTypeDef *htim);
+      |                                         ~~~~~~~~~~~~~~~~~~~^~~~
+../Core/Src/stm32g4xx_it.c:229:27: warning: unused variable 'status' [-Wunused-variable]
+  229 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14688	    536	   1824	  17048	   4298	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+13:06:47 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_StartWithTimerIRQ':
+../Core/Src/fmac_cmsis_interface.c:103:57: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  103 |         startStatus = HAL_FMAC_FilterStart(hfmac, NULL, 100);
+      |                                                         ^~~
+      |                                                         |
+      |                                                         int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14688	    536	   1824	  17048	   4298	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+13:08:38 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:9: warning: implicit declaration of function 'fmac_config' [-Wimplicit-function-declaration]
+  110 |         fmac_config(&sFmacConfig, 51, 100, 1, 0, 1, 151, 100, 1, NULL, 0,
+      |         ^~~~~~~~~~~
+../Core/Src/main.c:115:9: warning: implicit declaration of function 'fmac_StartWithTimerIRQ' [-Wimplicit-function-declaration]
+  115 |         fmac_StartWithTimerIRQ(&hfmac,&sFmacConfig,&htim6,&hdac1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:121:58: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  121 |         startStatus = HAL_FMAC_FilterStart(&hfmac, NULL, 100);
+      |                                                          ^~~
+      |                                                          |
+      |                                                          int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14796	    536	   1824	  17156	   4304	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+13:08:46 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:9: warning: implicit declaration of function 'fmac_config' [-Wimplicit-function-declaration]
+  110 |         fmac_config(&sFmacConfig, 51, 100, 1, 0, 1, 151, 100, 1, NULL, 0,
+      |         ^~~~~~~~~~~
+../Core/Src/main.c:115:9: warning: implicit declaration of function 'fmac_StartWithTimerIRQ' [-Wimplicit-function-declaration]
+  115 |         fmac_StartWithTimerIRQ(&hfmac,&sFmacConfig,&htim6,&hdac1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14716	    536	   1824	  17076	   42b4	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+13:11:29 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:9: warning: implicit declaration of function 'fmac_config' [-Wimplicit-function-declaration]
+  110 |         fmac_config(&sFmacConfig, 51, 100, 1, 0, 1, 151, 100, 1, NULL, 0,
+      |         ^~~~~~~~~~~
+../Core/Src/main.c:115:9: warning: implicit declaration of function 'fmac_StartWithTimerIRQ' [-Wimplicit-function-declaration]
+  115 |         fmac_StartWithTimerIRQ(&hfmac,&sFmacConfig,&htim6,&hdac1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14716	    536	   1824	  17076	   42b4	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+13:11:35 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14716	    536	   1824	  17076	   42b4	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+13:13:25 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/stm32g4xx_it.c:230:59: warning: comparison of constant '2' with boolean expression is always true [-Wbool-compare]
+  230 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |                                                           ^~
+../Core/Src/stm32g4xx_it.c:229:27: warning: unused variable 'status' [-Wunused-variable]
+  229 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:110:9: warning: implicit declaration of function 'fmac_config' [-Wimplicit-function-declaration]
+  110 |         fmac_config(&sFmacConfig, 51, 100, 1, 0, 1, 151, 100, 1, NULL, 0,
+      |         ^~~~~~~~~~~
+../Core/Src/main.c:115:9: warning: implicit declaration of function 'fmac_StartWithTimerIRQ' [-Wimplicit-function-declaration]
+  115 |         fmac_StartWithTimerIRQ(&hfmac,&sFmacConfig,&htim6,&hdac1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14720	    536	   1824	  17080	   42b8	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+13:16:35 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_StartWithTimerIRQ':
+../Core/Src/fmac_cmsis_interface.c:103:57: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  103 |         startStatus = HAL_FMAC_FilterStart(hfmac, NULL, 100);
+      |                                                         ^~~
+      |                                                         |
+      |                                                         int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_FilterSetDAC_TimerISR':
+../Core/Src/fmac_cmsis_interface.c:113:34: error: 'hfmac' undeclared (first use in this function)
+  113 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
+      |                                  ^~~~~
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:456:7: note: in definition of macro '__HAL_FMAC_GET_FLAG'
+  456 |   ((((__HANDLE__)->Instance->SR) & (__FLAG__)) == (__FLAG__))
+      |       ^~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:113:34: note: each undeclared identifier is reported only once for each function it appears in
+  113 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
+      |                                  ^~~~~
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:456:7: note: in definition of macro '__HAL_FMAC_GET_FLAG'
+  456 |   ((((__HANDLE__)->Instance->SR) & (__FLAG__)) == (__FLAG__))
+      |       ^~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:116:35: error: 'hdac1' undeclared (first use in this function)
+  116 |                 HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
+      |                                   ^~~~~
+../Core/Src/fmac_cmsis_interface.c:120:44: error: array subscript is not an integer
+  120 |                 hfmac.Instance->WDATA = lut[lutIndex++];
+      |                                            ^
+../Core/Src/fmac_cmsis_interface.c:118:27: warning: unused variable 'status' [-Wunused-variable]
+  118 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/fmac_cmsis_interface.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:17:19 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_StartWithTimerIRQ':
+../Core/Src/fmac_cmsis_interface.c:103:57: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  103 |         startStatus = HAL_FMAC_FilterStart(hfmac, NULL, 100);
+      |                                                         ^~~
+      |                                                         |
+      |                                                         int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_FilterSetDAC_TimerISR':
+../Core/Src/fmac_cmsis_interface.c:113:34: error: 'hfmac' undeclared (first use in this function)
+  113 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
+      |                                  ^~~~~
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:456:7: note: in definition of macro '__HAL_FMAC_GET_FLAG'
+  456 |   ((((__HANDLE__)->Instance->SR) & (__FLAG__)) == (__FLAG__))
+      |       ^~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:113:34: note: each undeclared identifier is reported only once for each function it appears in
+  113 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
+      |                                  ^~~~~
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:456:7: note: in definition of macro '__HAL_FMAC_GET_FLAG'
+  456 |   ((((__HANDLE__)->Instance->SR) & (__FLAG__)) == (__FLAG__))
+      |       ^~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:116:35: error: 'hdac1' undeclared (first use in this function)
+  116 |                 HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
+      |                                   ^~~~~
+../Core/Src/fmac_cmsis_interface.c:118:27: warning: unused variable 'status' [-Wunused-variable]
+  118 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/fmac_cmsis_interface.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:01:39 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_StartWithTimerIRQ':
+../Core/Src/fmac_cmsis_interface.c:103:57: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  103 |         startStatus = HAL_FMAC_FilterStart(hfmac, NULL, 100);
+      |                                                         ^~~
+      |                                                         |
+      |                                                         int
+../Core/Src/stm32g4xx_it.c:233:36: warning: passing argument 1 of 'fmac_FilterSetDAC_TimerISR' from incompatible pointer type [-Wincompatible-pointer-types]
+  233 |         fmac_FilterSetDAC_TimerISR(&lutIndex);
+      |                                    ^~~~~~~~~
+      |                                    |
+      |                                    uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/stm32g4xx_it.c:25:
+../Core/Inc/fmac_cmsis_interface.h:32:53: note: expected 'FMAC_HandleTypeDef *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+   32 | void fmac_FilterSetDAC_TimerISR(FMAC_HandleTypeDef *hfmac,DAC_HandleTypeDef *hdac1,uint8_t *lutIndex);
+      |                                 ~~~~~~~~~~~~~~~~~~~~^~~~~
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/stm32g4xx_it.c:233:9: error: too few arguments to function 'fmac_FilterSetDAC_TimerISR'
+  233 |         fmac_FilterSetDAC_TimerISR(&lutIndex);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../Core/Src/stm32g4xx_it.c:25:
+../Core/Inc/fmac_cmsis_interface.h:32:6: note: declared here
+   32 | void fmac_FilterSetDAC_TimerISR(FMAC_HandleTypeDef *hfmac,DAC_HandleTypeDef *hdac1,uint8_t *lutIndex);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_FilterSetDAC_TimerISR':
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:456:18: error: 'hfmac' is a pointer; did you mean to use '->'?
+  456 |   ((((__HANDLE__)->Instance->SR) & (__FLAG__)) == (__FLAG__))
+      |                  ^~
+../Core/Src/fmac_cmsis_interface.c:114:13: note: in expansion of macro '__HAL_FMAC_GET_FLAG'
+  114 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:115:39: error: 'hfmac' is a pointer; did you mean to use '->'?
+  115 |                 int16_t result = hfmac.Instance->RDATA;
+      |                                       ^
+      |                                       ->
+../Core/Src/fmac_cmsis_interface.c:117:34: warning: passing argument 1 of 'HAL_DAC_SetValue' from incompatible pointer type [-Wincompatible-pointer-types]
+  117 |                 HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
+      |                                  ^~~~~~
+      |                                  |
+      |                                  DAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:248,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dac.h:559:55: note: expected 'DAC_HandleTypeDef *' but argument is of type 'DAC_HandleTypeDef **'
+  559 | HAL_StatusTypeDef HAL_DAC_SetValue(DAC_HandleTypeDef *hdac, uint32_t Channel, uint32_t Alignment, uint32_t Data);
+      |                                    ~~~~~~~~~~~~~~~~~~~^~~~
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:456:18: error: 'hfmac' is a pointer; did you mean to use '->'?
+  456 |   ((((__HANDLE__)->Instance->SR) & (__FLAG__)) == (__FLAG__))
+      |                  ^~
+../Core/Src/fmac_cmsis_interface.c:120:13: note: in expansion of macro '__HAL_FMAC_GET_FLAG'
+  120 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:121:22: error: 'hfmac' is a pointer; did you mean to use '->'?
+  121 |                 hfmac.Instance->WDATA = lut[(*lutIndex)++];
+      |                      ^
+      |                      ->
+../Core/Src/fmac_cmsis_interface.c:119:27: warning: unused variable 'status' [-Wunused-variable]
+  119 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/stm32g4xx_it.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:40: Core/Src/fmac_cmsis_interface.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:02:01 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_StartWithTimerIRQ':
+../Core/Src/fmac_cmsis_interface.c:103:57: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  103 |         startStatus = HAL_FMAC_FilterStart(hfmac, NULL, 100);
+      |                                                         ^~~
+      |                                                         |
+      |                                                         int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_FilterSetDAC_TimerISR':
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:456:18: error: 'hfmac' is a pointer; did you mean to use '->'?
+  456 |   ((((__HANDLE__)->Instance->SR) & (__FLAG__)) == (__FLAG__))
+      |                  ^~
+../Core/Src/fmac_cmsis_interface.c:114:13: note: in expansion of macro '__HAL_FMAC_GET_FLAG'
+  114 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:115:39: error: 'hfmac' is a pointer; did you mean to use '->'?
+  115 |                 int16_t result = hfmac.Instance->RDATA;
+      |                                       ^
+      |                                       ->
+../Core/Src/fmac_cmsis_interface.c:117:34: warning: passing argument 1 of 'HAL_DAC_SetValue' from incompatible pointer type [-Wincompatible-pointer-types]
+  117 |                 HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
+      |                                  ^~~~~~
+      |                                  |
+      |                                  DAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:248,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dac.h:559:55: note: expected 'DAC_HandleTypeDef *' but argument is of type 'DAC_HandleTypeDef **'
+  559 | HAL_StatusTypeDef HAL_DAC_SetValue(DAC_HandleTypeDef *hdac, uint32_t Channel, uint32_t Alignment, uint32_t Data);
+      |                                    ~~~~~~~~~~~~~~~~~~~^~~~
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:456:18: error: 'hfmac' is a pointer; did you mean to use '->'?
+  456 |   ((((__HANDLE__)->Instance->SR) & (__FLAG__)) == (__FLAG__))
+      |                  ^~
+../Core/Src/fmac_cmsis_interface.c:120:13: note: in expansion of macro '__HAL_FMAC_GET_FLAG'
+  120 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:121:22: error: 'hfmac' is a pointer; did you mean to use '->'?
+  121 |                 hfmac.Instance->WDATA = lut[(*lutIndex)++];
+      |                      ^
+      |                      ->
+../Core/Src/fmac_cmsis_interface.c:119:27: warning: unused variable 'status' [-Wunused-variable]
+  119 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/fmac_cmsis_interface.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:02:30 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_StartWithTimerIRQ':
+../Core/Src/fmac_cmsis_interface.c:103:57: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  103 |         startStatus = HAL_FMAC_FilterStart(hfmac, NULL, 100);
+      |                                                         ^~~
+      |                                                         |
+      |                                                         int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_FilterSetDAC_TimerISR':
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:456:18: error: 'hfmac' is a pointer; did you mean to use '->'?
+  456 |   ((((__HANDLE__)->Instance->SR) & (__FLAG__)) == (__FLAG__))
+      |                  ^~
+../Core/Src/fmac_cmsis_interface.c:114:13: note: in expansion of macro '__HAL_FMAC_GET_FLAG'
+  114 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:117:34: warning: passing argument 1 of 'HAL_DAC_SetValue' from incompatible pointer type [-Wincompatible-pointer-types]
+  117 |                 HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
+      |                                  ^~~~~~
+      |                                  |
+      |                                  DAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:248,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dac.h:559:55: note: expected 'DAC_HandleTypeDef *' but argument is of type 'DAC_HandleTypeDef **'
+  559 | HAL_StatusTypeDef HAL_DAC_SetValue(DAC_HandleTypeDef *hdac, uint32_t Channel, uint32_t Alignment, uint32_t Data);
+      |                                    ~~~~~~~~~~~~~~~~~~~^~~~
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:456:18: error: 'hfmac' is a pointer; did you mean to use '->'?
+  456 |   ((((__HANDLE__)->Instance->SR) & (__FLAG__)) == (__FLAG__))
+      |                  ^~
+../Core/Src/fmac_cmsis_interface.c:120:13: note: in expansion of macro '__HAL_FMAC_GET_FLAG'
+  120 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:119:27: warning: unused variable 'status' [-Wunused-variable]
+  119 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/fmac_cmsis_interface.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:02:40 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_StartWithTimerIRQ':
+../Core/Src/fmac_cmsis_interface.c:103:57: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  103 |         startStatus = HAL_FMAC_FilterStart(hfmac, NULL, 100);
+      |                                                         ^~~
+      |                                                         |
+      |                                                         int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_FilterSetDAC_TimerISR':
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:456:18: error: 'hfmac' is a pointer; did you mean to use '->'?
+  456 |   ((((__HANDLE__)->Instance->SR) & (__FLAG__)) == (__FLAG__))
+      |                  ^~
+../Core/Src/fmac_cmsis_interface.c:114:13: note: in expansion of macro '__HAL_FMAC_GET_FLAG'
+  114 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c:117:34: warning: passing argument 1 of 'HAL_DAC_SetValue' from incompatible pointer type [-Wincompatible-pointer-types]
+  117 |                 HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
+      |                                  ^~~~~~
+      |                                  |
+      |                                  DAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:248,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dac.h:559:55: note: expected 'DAC_HandleTypeDef *' but argument is of type 'DAC_HandleTypeDef **'
+  559 | HAL_StatusTypeDef HAL_DAC_SetValue(DAC_HandleTypeDef *hdac, uint32_t Channel, uint32_t Alignment, uint32_t Data);
+      |                                    ~~~~~~~~~~~~~~~~~~~^~~~
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:456:18: error: 'hfmac' is a pointer; did you mean to use '->'?
+  456 |   ((((__HANDLE__)->Instance->SR) & (__FLAG__)) == (__FLAG__))
+      |                  ^~
+../Core/Src/fmac_cmsis_interface.c:119:13: note: in expansion of macro '__HAL_FMAC_GET_FLAG'
+  119 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |             ^~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/fmac_cmsis_interface.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:03:11 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/fmac_cmsis_interface.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fmac_cmsis_interface.d" -MT"Core/Src/fmac_cmsis_interface.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/fmac_cmsis_interface.o"
+../Core/Src/fmac_cmsis_interface.c: In function 'cmsis_q15_init':
+../Core/Src/fmac_cmsis_interface.c:44:26: warning: passing argument 1 of 'arm_fir_init_q15' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |         arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+      |                          ^~
+      |                          |
+      |                          arm_fir_instance_q15 **
+In file included from ../Core/Inc/main.h:35,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include/arm_math.h:1300:32: note: expected 'arm_fir_instance_q15 *' but argument is of type 'arm_fir_instance_q15 **'
+ 1300 |         arm_fir_instance_q15 * S,
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_StartWithTimerIRQ':
+../Core/Src/fmac_cmsis_interface.c:103:57: warning: passing argument 3 of 'HAL_FMAC_FilterStart' makes pointer from integer without a cast [-Wint-conversion]
+  103 |         startStatus = HAL_FMAC_FilterStart(hfmac, NULL, 100);
+      |                                                         ^~~
+      |                                                         |
+      |                                                         int
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:264,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fmac.h:666:95: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int'
+  666 | HAL_StatusTypeDef HAL_FMAC_FilterStart(FMAC_HandleTypeDef *hfmac, int16_t *pOutput, uint16_t *pOutputSize);
+      |                                                                                     ~~~~~~~~~~^~~~~~~~~~~
+../Core/Src/fmac_cmsis_interface.c: In function 'fmac_FilterSetDAC_TimerISR':
+../Core/Src/fmac_cmsis_interface.c:117:34: warning: passing argument 1 of 'HAL_DAC_SetValue' from incompatible pointer type [-Wincompatible-pointer-types]
+  117 |                 HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
+      |                                  ^~~~~~
+      |                                  |
+      |                                  DAC_HandleTypeDef **
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:248,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/fmac_cmsis_interface.c:7:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dac.h:559:55: note: expected 'DAC_HandleTypeDef *' but argument is of type 'DAC_HandleTypeDef **'
+  559 | HAL_StatusTypeDef HAL_DAC_SetValue(DAC_HandleTypeDef *hdac, uint32_t Channel, uint32_t Alignment, uint32_t Data);
+      |                                    ~~~~~~~~~~~~~~~~~~~^~~~
+../Core/Src/fmac_cmsis_interface.c:119:58: warning: comparison of constant '2' with boolean expression is always true [-Wbool-compare]
+  119 |         if (__HAL_FMAC_GET_FLAG(hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |                                                          ^~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14744	    536	   1824	  17104	   42d0	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+14:03:24 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14744	    536	   1824	  17104	   42d0	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+14:03:28 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14744	    536	   1824	  17104	   42d0	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+14:04:27 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/stm32g4xx_it.c:230:59: warning: comparison of constant '2' with boolean expression is always true [-Wbool-compare]
+  230 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |                                                           ^~
+../Core/Src/stm32g4xx_it.c:229:27: warning: unused variable 'status' [-Wunused-variable]
+  229 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14720	    536	   1824	  17080	   42b8	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+14:04:30 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14720	    536	   1824	  17080	   42b8	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+14:05:39 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14744	    536	   1824	  17104	   42d0	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+14:16:25 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14744	    536	   1824	  17104	   42d0	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+14:23:23 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/stm32g4xx_it.c:233:52: warning: passing argument 3 of 'fmac_FilterSetDAC_TimerISR' from incompatible pointer type [-Wincompatible-pointer-types]
+  233 |         fmac_FilterSetDAC_TimerISR(&hfmac, &hdac1, &lutIndex);
+      |                                                    ^~~~~~~~~
+      |                                                    |
+      |                                                    uint8_t ** {aka unsigned char **}
+In file included from ../Core/Src/stm32g4xx_it.c:25:
+../Core/Inc/fmac_cmsis_interface.h:32:93: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t **' {aka 'unsigned char **'}
+   32 | void fmac_FilterSetDAC_TimerISR(FMAC_HandleTypeDef *hfmac,DAC_HandleTypeDef *hdac1,uint8_t *lutIndex);
+      |                                                                                    ~~~~~~~~~^~~~~~~~
+../Core/Src/stm32g4xx_it.c:241:22: warning: comparison between pointer and integer
+  241 |         if (lutIndex == 255) {
+      |                      ^~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14744	    536	   1824	  17104	   42d0	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+14:23:31 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/stm32g4xx_it.c:233:52: warning: passing argument 3 of 'fmac_FilterSetDAC_TimerISR' from incompatible pointer type [-Wincompatible-pointer-types]
+  233 |         fmac_FilterSetDAC_TimerISR(&hfmac, &hdac1, &lutIndex);
+      |                                                    ^~~~~~~~~
+      |                                                    |
+      |                                                    uint8_t ** {aka unsigned char **}
+In file included from ../Core/Src/stm32g4xx_it.c:25:
+../Core/Inc/fmac_cmsis_interface.h:32:93: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t **' {aka 'unsigned char **'}
+   32 | void fmac_FilterSetDAC_TimerISR(FMAC_HandleTypeDef *hfmac,DAC_HandleTypeDef *hdac1,uint8_t *lutIndex);
+      |                                                                                    ~~~~~~~~~^~~~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14748	    536	   1824	  17108	   42d4	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+14:23:36 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14748	    536	   1824	  17108	   42d4	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+14:24:10 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/stm32g4xx_it.c:230:59: warning: comparison of constant '2' with boolean expression is always true [-Wbool-compare]
+  230 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |                                                           ^~
+../Core/Src/stm32g4xx_it.c:241:13: error: invalid type argument of unary '*' (have 'int')
+  241 |         if (*lutIndex == 255) {
+      |             ^~~~~~~~~
+../Core/Src/stm32g4xx_it.c:229:27: warning: unused variable 'status' [-Wunused-variable]
+  229 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/stm32g4xx_it.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+14:24:13 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/stm32g4xx_it.c:230:59: warning: comparison of constant '2' with boolean expression is always true [-Wbool-compare]
+  230 |         if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+      |                                                           ^~
+../Core/Src/stm32g4xx_it.c:229:27: warning: unused variable 'status' [-Wunused-variable]
+  229 |         HAL_StatusTypeDef status;
+      |                           ^~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
+   text	   data	    bss	    dec	    hex	filename
+  14720	    536	   1824	  17080	   42b8	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 
+Finished building: BenchmarkingAccelerators.list
+ 
+14:24:17 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+make -j8 all 
+arm-none-eabi-size  BenchmarkingAccelerators.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14720	    536	   1824	  17080	   42b8	BenchmarkingAccelerators.elf
+Finished building: default.size.stdout
+ 

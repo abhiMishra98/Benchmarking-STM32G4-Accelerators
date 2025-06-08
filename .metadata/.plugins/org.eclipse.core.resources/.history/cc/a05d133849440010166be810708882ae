@@ -1,0 +1,13 @@
+/*
+ * fmac_cmsis_interface.h
+ *
+ *  Created on: Jun 8, 2025
+ *      Author: abhim
+ */
+
+#ifndef INC_FMAC_CMSIS_INTERFACE_H_
+#define INC_FMAC_CMSIS_INTERFACE_H_
+
+
+
+#endif /* INC_FMAC_CMSIS_INTERFACE_H_ */

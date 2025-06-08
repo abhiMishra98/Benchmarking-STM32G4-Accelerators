@@ -1,0 +1,4 @@
+../Core/Src/fmac_cmsis_interface.c:42:6:cmsis_q15_init	32	static
+../Core/Src/fmac_cmsis_interface.c:47:6:fmac_config	24	static
+../Core/Src/fmac_cmsis_interface.c:94:6:fmac_StartWithTimerIRQ	40	static
+../Core/Src/fmac_cmsis_interface.c:111:6:fmac_FilterSetDAC_TimerISR	32	static
