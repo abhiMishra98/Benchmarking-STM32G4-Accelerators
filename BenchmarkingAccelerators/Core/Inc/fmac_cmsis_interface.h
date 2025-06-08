@@ -10,7 +10,7 @@
 
 extern int16_t lut[256];
 
-void cmsis_q15_init(arm_fir_instance_q15 *S, uint16_t numTaps,
+void cmsis_fir_q15_init(arm_fir_instance_q15 *S, uint16_t numTaps,
 		const q15_t *pCoeffs, q15_t *pState, uint32_t blockSize);
 
 void fmac_config(FMAC_FilterConfigTypeDef *sFmacConfig, uint8_t ipBaseAddr,

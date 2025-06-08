@@ -5,6 +5,7 @@
  *      Author: abhim
  */
 #include "main.h"
+#include "fir_coeffs.h"
 #include "fmac_cmsis_interface.h"
 
 /** Generated using Dr LUT - Free Lookup Table Generator
@@ -39,9 +40,9 @@ int16_t lut[256] = { 0, 804, 1608, 2410, 3212, 4011, 4808, 5602, 6393, 7179,
 		-11039, -10278, -9512, -8739, -7962, -7179, -6393, -5602, -4808, -4011,
 		-3212, -2410, -1608, -804 };
 
-void cmsis_q15_init(arm_fir_instance_q15 *S, uint16_t numTaps,
+void cmsis_fir_q15_init(arm_fir_instance_q15 *S, uint16_t numTaps,
 		const q15_t *pCoeffs, q15_t *pState, uint32_t blockSize) {
-	arm_fir_init_q15(&S, numTaps, pCoeffs, pState, blockSize);
+	arm_fir_init_q15(S, numTaps, pCoeffs, pState, blockSize);
 }
 
 void fmac_config(FMAC_FilterConfigTypeDef *sFmacConfig, uint8_t ipBaseAddr,

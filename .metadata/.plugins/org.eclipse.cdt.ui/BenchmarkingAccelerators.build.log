@@ -1,10 +1,27 @@
-14:24:17 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+16:30:49 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:91:34: warning: initialization of 'q15_t *' {aka 'short int *'} from incompatible pointer type 'int16_t (*)[21]' {aka 'short int (*)[21]'} [-Wincompatible-pointer-types]
+   91 |         q15_t *cmsis_firCoeffs = &fir_coeffs;
+      |                                  ^
+../Core/Src/main.c:92:36: warning: initialization of 'q15_t *' {aka 'short int *'} from incompatible pointer type 'q15_t (*)[22]' {aka 'short int (*)[22]'} [-Wincompatible-pointer-types]
+   92 |         q15_t *cmsis_firStateq15 = &firStateQ15;
+      |                                    ^
+../Core/Src/main.c:93:9: warning: implicit declaration of function 'cmsis_fir_q15_init' [-Wimplicit-function-declaration]
+   93 |         cmsis_fir_q15_init(&A, NUMTAPS, cmsis_firCoeffs, cmsis_firStateq15, BLOCK_SIZE);
+      |         ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BenchmarkingAccelerators.elf
+ 
 arm-none-eabi-size  BenchmarkingAccelerators.elf 
+arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
    text	   data	    bss	    dec	    hex	filename
-  14720	    536	   1824	  17080	   42b8	BenchmarkingAccelerators.elf
+  12036	    576	   1880	  14492	   389c	BenchmarkingAccelerators.elf
 Finished building: default.size.stdout
  
+Finished building: BenchmarkingAccelerators.list
+ 
 
-14:24:18 Build Finished. 0 errors, 0 warnings. (took 858ms)
+16:30:50 Build Finished. 0 errors, 3 warnings. (took 1s.666ms)
 
