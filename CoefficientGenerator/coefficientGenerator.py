@@ -3,8 +3,9 @@ from scipy import signal
 
 # Design FIR low-pass filter
 num_taps = 21
-cutoff = 0.9  #normalized frequency. 1 being the Nyquist frequency, so cutoff shud be 0<cutoff<1
-b = signal.firwin(num_taps, cutoff)
+cutoff = 0.2  #normalized frequency. 1 being the Nyquist frequency, so cutoff shud be 0<cutoff<1
+#b = signal.firwin(num_taps, cutoff)
+b = signal.firwin(num_taps,cutoff,pass_zero=False) #for high pass filter
 
 # Convert to Q15 fixed-point format with clipping to int16_t range
 q15_scale = 2**15

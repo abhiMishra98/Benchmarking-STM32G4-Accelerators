@@ -221,26 +221,26 @@ void TIM6_DAC_IRQHandler(void) {
 	/* USER CODE BEGIN TIM6_DAC_IRQn 0 */
 	static uint8_t lutIndex = 0;
 //	For FMAC implementation [polling]
-//	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
-//		int16_t result = hfmac.Instance->RDATA;
-//		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4); // scale to 12-bit
-//		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
-//	}
-//	HAL_StatusTypeDef status;
-//	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
-//		hfmac.Instance->WDATA = lut[lutIndex++];
-//	}
-//	fmac_FilterSetDAC_TimerISR(&hfmac, &hdac1, &lutIndex);
+	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
+		int16_t result = hfmac.Instance->RDATA;
+		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4); // scale to 12-bit
+		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
+	}
+	HAL_StatusTypeDef status;
+	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+		hfmac.Instance->WDATA = lut[lutIndex++];
+	}
+	fmac_FilterSetDAC_TimerISR(&hfmac, &hdac1, &lutIndex);
 
 //For FIR Implementation
-	arm_fir_q15(&A, &lut[lutIndex++], filteredSample, BLOCK_SIZE);
-	q15_t q15_val = filteredSample[0];
-	uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); //Scale to 0–4095
-	HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val);
-
-	if (lutIndex == 255) {
-		lutIndex = 0;
-	}
+//	arm_fir_q15(&A, &lut[lutIndex++], filteredSample, BLOCK_SIZE);
+//	q15_t q15_val = filteredSample[0];
+//	uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); //Scale to 0–4095
+//	HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val);
+//
+//	if (lutIndex == 255) {
+//		lutIndex = 0;
+//	}
 
 	/* USER CODE END TIM6_DAC_IRQn 0 */
 

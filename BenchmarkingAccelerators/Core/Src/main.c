@@ -88,9 +88,9 @@ int main(void) {
 
 	/* USER CODE BEGIN Init */
 	//arm_fir_init_q15(&A, NUMTAPS, fir_coeffs, firStateQ15, BLOCK_SIZE);
-	q15_t *cmsis_firCoeffs = &fir_coeffs;
-	q15_t *cmsis_firStateq15 = &firStateQ15;
-	cmsis_fir_q15_init(&A, NUMTAPS, cmsis_firCoeffs, cmsis_firStateq15, BLOCK_SIZE);
+//	q15_t *cmsis_firCoeffs = &fir_coeffs;
+//	q15_t *cmsis_firStateq15 = &firStateQ15;
+//	cmsis_fir_q15_init(&A, NUMTAPS, cmsis_firCoeffs, cmsis_firStateq15, BLOCK_SIZE);
 	/* USER CODE END Init */
 
 	/* Configure the system clock */
@@ -109,17 +109,17 @@ int main(void) {
 
 	/* USER CODE BEGIN 2 */
 	/* declare a filter configuration structure */
-//	FMAC_FilterConfigTypeDef sFmacConfig;
-//	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, NULL, 0,
-//			fir_coeffs, 21, FMAC_BUFFER_ACCESS_POLLING,
-//			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
-//			21, 0, 0);
-//	/* Configure the FMAC */
-//	fmac_StartWithTimerIRQ(&hfmac,&sFmacConfig,&htim6,&hdac1);
+	FMAC_FilterConfigTypeDef sFmacConfig;
+	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, NULL, 0,
+			fir_coeffs, 21, FMAC_BUFFER_ACCESS_POLLING,
+			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
+			21, 0, 0);
+	/* Configure the FMAC */
+	fmac_StartWithTimerIRQ(&hfmac,&sFmacConfig,&htim6,&hdac1);
 
 
-	HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
-	HAL_TIM_Base_Start_IT(&htim6);
+//	HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
+//	HAL_TIM_Base_Start_IT(&htim6);
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
