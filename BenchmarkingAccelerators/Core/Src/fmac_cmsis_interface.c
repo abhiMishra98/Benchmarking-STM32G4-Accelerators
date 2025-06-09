@@ -5,7 +5,7 @@
  *      Author: abhim
  */
 #include "main.h"
-#include "fir_coeffs.h"
+#include "filter_coeffs.h"
 #include "fmac_cmsis_interface.h"
 
 /** Generated using Dr LUT - Free Lookup Table Generator

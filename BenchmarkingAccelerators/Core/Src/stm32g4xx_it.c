@@ -223,7 +223,7 @@ void TIM6_DAC_IRQHandler(void) {
 //	For FMAC implementation [polling]
 	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
 		int16_t result = hfmac.Instance->RDATA;
-		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4); // scale to 12-bit
+		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4); // scale to 12-bit to feed into our 12-bit DAC
 		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
 	}
 	HAL_StatusTypeDef status;

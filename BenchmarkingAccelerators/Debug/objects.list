@@ -1,4 +1,4 @@
-"./Core/Src/fir_coeffs.o"
+"./Core/Src/filter_coeffs.o"
 "./Core/Src/fmac_cmsis_interface.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32g4xx_hal_msp.o"

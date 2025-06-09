@@ -33,7 +33,7 @@ extern "C" {
 /* USER CODE BEGIN Includes */
 #include <math.h>
 #include "arm_math.h"
-#include "fir_coeffs.h"
+#include "filter_coeffs.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
