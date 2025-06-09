@@ -43,9 +43,16 @@ source_path = "D:\\STM32G4\\Benchmarking-STM32G4-Accelerators\\BenchmarkingAccel
 # --- Parameters ---
 alpha = 0.9  # smoothing factor (smaller = more smoothing)
 
-# --- IIR EMA Coefficients ---
-b_coeffs = [alpha]                   # b0
-a_coeffs = [1.0, -(1.0 - alpha)]     # a0 = 1, a1 = -(1 - alpha)
+# # --- IIR EMA Coefficients ---
+# b_coeffs = [alpha]                   # b0
+# a_coeffs = [1.0, -(1.0 - alpha)]     # a0 = 1, a1 = -(1 - alpha)
+
+
+# --- IIR HP EMA Coefficients ---
+# b[n] = [1, -alpha]
+# a[n] = [1, -alpha]
+b_coeffs = [1.0, -alpha]
+a_coeffs = [1.0, -alpha]
 
 # --- Convert to Q15 ---
 def to_q15(vals):
