@@ -12,6 +12,8 @@
  * https://github.com/ppelikan/drlut
  **/
 // Formula: sin(2*pi*t/T)
+uint32_t dac_dma_buffer[DAC_DMA_BUF_LEN];
+uint8_t dac_dma_index = 0;
 int16_t lut[256] = { 0, 804, 1608, 2410, 3212, 4011, 4808, 5602, 6393, 7179,
 		7962, 8739, 9512, 10278, 11039, 11793, 12539, 13279, 14010, 14732,
 		15446, 16151, 16846, 17530, 18204, 18868, 19519, 20159, 20787, 21403,
@@ -62,12 +64,11 @@ void fmac_config(FMAC_FilterConfigTypeDef *sFmacConfig, uint8_t ipBaseAddr,
 	/* Set the input buffer size greater than the number of coeffs */
 	sFmacConfig->InputBufferSize = ipBufferSize;
 	/* Set the input watermark to zero since we are using DMA */
-	sFmacConfig->InputThreshold = ipThreshold;
+	sFmacConfig->InputThreshold = ipThreshold; //Number of samples to be present in the buffer, before the FMAC core starts processing
 	/* Set the Output buffer base address to the next free address */
 	sFmacConfig->OutputBaseAddress = opBaseAddress;
 	/* Set the output buffer size */
 	sFmacConfig->OutputBufferSize = opBufferSize;
-	/* Set the output watermark to zero since we are using DMA */
 	sFmacConfig->OutputThreshold = opThreshold;
 	/* No A coefficients since FIR. To be used in IIR filter */
 	sFmacConfig->pCoeffA = pCoeffA;
@@ -99,15 +100,65 @@ void fmac_StartWithTimerIRQ(FMAC_HandleTypeDef *hfmac,
 	if (HAL_FMAC_FilterConfig(hfmac, sFmacConfig) != HAL_OK)
 		/* Configuration Error */
 		Error_Handler();
-	HAL_FMAC_FilterPreload(hfmac, &lut[0], 1, NULL, 0);
+	HAL_FMAC_FilterPreload(hfmac, &lut[0], 1, NULL, 1); //Comment if using FMAC with DMA
+
 	HAL_StatusTypeDef startStatus;
 	startStatus = HAL_FMAC_FilterStart(hfmac, NULL, 100);
+//	__HAL_FMAC_ENABLE_IT(hfmac, FMAC_SR_YEMPTY); //Added for setting output to DAC once available
 	if (startStatus == HAL_OK) {
+
 		HAL_DAC_Start(hdac1, DAC_CHANNEL_1);
 		HAL_TIM_Base_Start_IT(htim6);
+//		HAL_DMA_Start(&hdma_fmac_write, (uint32_t) lut, (uint32_t) &FMAC->WDATA,
+//						256);  // Added for DMA-FMAC_Write operation
 	} else {
 
 	}
+}
+void fmac_StartWithTimerIRQ_DMA(FMAC_HandleTypeDef *hfmac,
+		FMAC_FilterConfigTypeDef *sFmacConfig, TIM_HandleTypeDef *htim6,
+		DAC_HandleTypeDef *hdac1) {
+
+	//	/* Configure the FMAC */
+	if (HAL_FMAC_FilterConfig_DMA(hfmac, sFmacConfig) != HAL_OK)
+		/* Configuration Error */
+		Error_Handler();
+
+	HAL_FMAC_FilterPreload_DMA(&hfmac, &lut[0], 21, NULL, 0); // Preload with initial data (past samples)
+
+	uint16_t lutSize = 256;  // number of samples to send
+
+	if (HAL_FMAC_AppendFilterData(&hfmac, lut, &lutSize) != HAL_OK) {
+		Error_Handler();
+	}
+
+	uint16_t outputLen = lutSize;  // same size as input
+	if (HAL_FMAC_FilterStart(&hfmac, dac_dma_buffer, &outputLen) != HAL_OK) {
+		Error_Handler();
+	}
+
+	//HAL_FMAC_FilterPreload_DMA(&hfmac, lut, 1, NULL, 0);
+
+	//HAL_FMAC_FilterPreload(hfmac, &lut[0], 1, NULL, 0);
+//	HAL_StatusTypeDef startStatus;
+//	startStatus = HAL_FMAC_FilterStart(hfmac, NULL, 100);
+//	if (startStatus == HAL_OK) {
+//		HAL_DAC_Start_DMA(hdac1, DAC_CHANNEL_1, dac_dma_buffer, DAC_DMA_BUF_LEN,
+//				DAC_ALIGN_12B_R);
+//		HAL_TIM_Base_Start_IT(htim6);
+//	} else {
+//
+//	}
+
+	HAL_StatusTypeDef status = HAL_DMA_Start_IT(&hdma_fmac_read,
+			(uint32_t) &FMAC->RDATA, (uint32_t) dac_dma_buffer,
+			DAC_DMA_BUF_LEN);
+	if (status != HAL_OK) {
+		Error_Handler();
+	}
+//	HAL_DAC_Start_DMA(hdac1, DAC_CHANNEL_1, dac_dma_buffer, DAC_DMA_BUF_LEN,
+//	DAC_ALIGN_12B_R);
+//	HAL_TIM_Base_Start_IT(htim6);
 }
 void fmac_FilterSetDAC_TimerISR(FMAC_HandleTypeDef *hfmac,
 		DAC_HandleTypeDef *hdac1, uint8_t *lutIndex) {
@@ -121,3 +172,37 @@ void fmac_FilterSetDAC_TimerISR(FMAC_HandleTypeDef *hfmac,
 		hfmac->Instance->WDATA = lut[(*lutIndex)++];
 	}
 }
+void fmac_FilterSetDAC_TimerISR_DMA(FMAC_HandleTypeDef *hfmac,
+		DAC_HandleTypeDef *hdac1, uint8_t *lutIndex) {
+	if (__HAL_FMAC_GET_FLAG(hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
+		int16_t result = hfmac->Instance->RDATA;
+		// Usage in ISR or function:
+		dac_dma_buffer[dac_dma_index++] = (uint32_t) (((int32_t) result + 32768)
+				>> 4);
+	}
+	if (__HAL_FMAC_GET_FLAG(hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+		hfmac->Instance->WDATA = lut[(*lutIndex)++];
+	}
+
+}
+
+//void DMA_Init(DMA_HandleTypeDef *DMAInstance, FMAC_HandleTypeDef *hfmac,
+//		uint32_t Request, uint32_t Direction, uint32_t PeriphInc,
+//		uint32_t MemInc, uint32_t PeriphDataAlignment,
+//		uint32_t MemDataAlignment, uint32_t Mode, uint32_t Priority) {
+//	/* Preload channel initialisation */
+//	DMAInstance->Instance = DMA1_Channel1;
+//	DMAInstance->Init.Request = Request;
+//	DMAInstance->Init.Direction = Direction;
+//	DMAInstance->Init.PeriphInc = PeriphInc;
+//	DMAInstance->Init.MemInc = MemInc;
+//	DMAInstance->Init.PeriphDataAlignment = PeriphDataAlignment;
+//	DMAInstance->Init.MemDataAlignment = MemDataAlignment;
+//	DMAInstance->Init.Mode = Mode;
+//	DMAInstance->Init.Priority = Priority;
+//	if (HAL_DMA_Init(DMAInstance) != HAL_OK)
+//		Error_Handler();
+//	/* Connect the DMA channel to the FMAC handle */
+//	__HAL_LINKDMA(hfmac, hdmaPreload, *DMAInstance);
+//
+//}

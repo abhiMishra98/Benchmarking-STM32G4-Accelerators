@@ -1,9 +1,0 @@
-/*
- * fmac_cmsis_interface.c
- *
- *  Created on: Jun 8, 2025
- *      Author: abhim
- */
-#include "main.h"
-#include "fmac_cmsis_interface.h"
-

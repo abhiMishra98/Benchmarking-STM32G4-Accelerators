@@ -50,6 +50,16 @@ extern "C" {
 #define BLOCKLENGTH 1
 #define NUMTAPS 	22
 #define FIR_STATE_LEN (BLOCKLENGTH + NUMTAPS - 1)
+#define DMA_BUFFER_SIZE	128
+#define DAC_DMA_BUF_LEN 64
+
+
+//DMAMUX for setting timer interrupt at 48KHz
+#define DMAMUX_SIG_ID_TIM6_UP     8
+#define DMAMUX_RGxCR_GPOL_RISING DMAMUX_RGxCR_GPOL_0
+
+//Enabling interrupt when FMAC o/p data is present
+#define FMAC_IT_YEMPTY  ((uint32_t)(0x1U << 0))  // Same bit as FMAC_SR_YEMPTY
 
 extern q15_t inputSample[BLOCK_SIZE];
 extern q15_t filteredSample[BLOCK_SIZE];
@@ -57,6 +67,11 @@ extern arm_fir_instance_q15 A;
 extern uint16_t blockLen;
 extern q15_t firStateQ15[FIR_STATE_LEN];
 extern int16_t lut[256];
+extern DMA_HandleTypeDef hdma_fmac_read;
+extern DMA_HandleTypeDef hdma_fmac_write;
+
+extern uint32_t dac_dma_buffer[DAC_DMA_BUF_LEN];
+extern uint8_t dac_dma_index;
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

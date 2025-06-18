@@ -3,9 +3,7 @@
 
 #include <stdint.h>
 
-#define EMA_NUM_A_COEFFS 2
-#define EMA_NUM_B_COEFFS 1
-extern int16_t ema_a_coeffs[EMA_NUM_A_COEFFS];
-extern int16_t ema_b_coeffs[EMA_NUM_B_COEFFS];
+#define NUM_TAPS 21
+extern int16_t fir_coeffs[NUM_TAPS];
 
 #endif // FILTER_COEFFS_H

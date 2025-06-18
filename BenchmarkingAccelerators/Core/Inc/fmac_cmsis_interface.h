@@ -25,10 +25,22 @@ void fmac_StartWithTimerIRQ(FMAC_HandleTypeDef *hfmac,
 		FMAC_FilterConfigTypeDef *sFmacConfig, TIM_HandleTypeDef *htim6,
 		DAC_HandleTypeDef *hdac1);
 
+void fmac_StartWithTimerIRQ_DMA(FMAC_HandleTypeDef *hfmac,
+		FMAC_FilterConfigTypeDef *sFmacConfig, TIM_HandleTypeDef *htim6,
+		DAC_HandleTypeDef *hdac1);
+
 void cmsis_StartTimerIRQ();
 
 void cmsis_FilterSetDAC_TimerISR();
 
-void fmac_FilterSetDAC_TimerISR(FMAC_HandleTypeDef *hfmac,DAC_HandleTypeDef *hdac1,uint8_t *lutIndex);
+void fmac_FilterSetDAC_TimerISR(FMAC_HandleTypeDef *hfmac,
+		DAC_HandleTypeDef *hdac1, uint8_t *lutIndex);
+void fmac_FilterSetDAC_TimerISR_DMA(FMAC_HandleTypeDef *hfmac,
+		DAC_HandleTypeDef *hdac1, uint8_t *lutIndex);
+
+//void DMA_Init(DMA_HandleTypeDef *DMAInstance, FMAC_HandleTypeDef *hfmac,
+//		uint32_t Request, uint32_t Direction, uint32_t PeriphInc,
+//		uint32_t MemInc, uint32_t PeriphDataAlignment,
+//		uint32_t MemDataAlignment, uint32_t Mode, uint32_t Priority);
 
 #endif /* INC_FMAC_CMSIS_INTERFACE_H_ */

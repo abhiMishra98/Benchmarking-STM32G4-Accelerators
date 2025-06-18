@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file         stm32g4xx_hal_msp.c
-  * @brief        This file provides code for the MSP Initialization
-  *               and de-Initialization codes.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file         stm32g4xx_hal_msp.c
+ * @brief        This file provides code for the MSP Initialization
+ *               and de-Initialization codes.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
@@ -24,6 +24,10 @@
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
+extern DMA_HandleTypeDef hdma_dac1_ch1;
+
+extern DMA_HandleTypeDef hdma_fmac_read;
+
 extern DMA_HandleTypeDef hdma_fmac_write;
 
 /* Private typedef -----------------------------------------------------------*/
@@ -109,6 +113,24 @@ void HAL_DAC_MspInit(DAC_HandleTypeDef* hdac)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+    /* DAC1 DMA Init */
+    /* DAC1_CH1 Init */
+    hdma_dac1_ch1.Instance = DMA1_Channel1;
+    hdma_dac1_ch1.Init.Request = DMA_REQUEST_DAC1_CHANNEL1;
+    hdma_dac1_ch1.Init.Direction = DMA_MEMORY_TO_PERIPH;
+    hdma_dac1_ch1.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_dac1_ch1.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_dac1_ch1.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
+    hdma_dac1_ch1.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
+    hdma_dac1_ch1.Init.Mode = DMA_CIRCULAR;
+    hdma_dac1_ch1.Init.Priority = DMA_PRIORITY_LOW;
+    if (HAL_DMA_Init(&hdma_dac1_ch1) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(hdac,DMA_Handle1,hdma_dac1_ch1);
+
     /* DAC1 interrupt Init */
     HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
@@ -141,13 +163,16 @@ void HAL_DAC_MspDeInit(DAC_HandleTypeDef* hdac)
     */
     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_4|GPIO_PIN_5);
 
+    /* DAC1 DMA DeInit */
+    HAL_DMA_DeInit(hdac->DMA_Handle1);
+
     /* DAC1 interrupt DeInit */
   /* USER CODE BEGIN DAC1:TIM6_DAC_IRQn disable */
-    /**
-    * Uncomment the line below to disable the "TIM6_DAC_IRQn" interrupt
-    * Be aware, disabling shared interrupt may affect other IPs
-    */
-    /* HAL_NVIC_DisableIRQ(TIM6_DAC_IRQn); */
+		/**
+		 * Uncomment the line below to disable the "TIM6_DAC_IRQn" interrupt
+		 * Be aware, disabling shared interrupt may affect other IPs
+		 */
+		/* HAL_NVIC_DisableIRQ(TIM6_DAC_IRQn); */
   /* USER CODE END DAC1:TIM6_DAC_IRQn disable */
 
   /* USER CODE BEGIN DAC1_MspDeInit 1 */
@@ -174,15 +199,32 @@ void HAL_FMAC_MspInit(FMAC_HandleTypeDef* hfmac)
     __HAL_RCC_FMAC_CLK_ENABLE();
 
     /* FMAC DMA Init */
+    /* FMAC_READ Init */
+    hdma_fmac_read.Instance = DMA1_Channel2;
+    hdma_fmac_read.Init.Request = DMA_REQUEST_FMAC_READ;
+    hdma_fmac_read.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_fmac_read.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_fmac_read.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_fmac_read.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+    hdma_fmac_read.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+    hdma_fmac_read.Init.Mode = DMA_NORMAL;
+    hdma_fmac_read.Init.Priority = DMA_PRIORITY_LOW;
+    if (HAL_DMA_Init(&hdma_fmac_read) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(hfmac,hdmaOut,hdma_fmac_read);
+
     /* FMAC_WRITE Init */
-    hdma_fmac_write.Instance = DMA1_Channel1;
+    hdma_fmac_write.Instance = DMA1_Channel3;
     hdma_fmac_write.Init.Request = DMA_REQUEST_FMAC_WRITE;
     hdma_fmac_write.Init.Direction = DMA_MEMORY_TO_PERIPH;
     hdma_fmac_write.Init.PeriphInc = DMA_PINC_DISABLE;
     hdma_fmac_write.Init.MemInc = DMA_MINC_ENABLE;
     hdma_fmac_write.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
     hdma_fmac_write.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
-    hdma_fmac_write.Init.Mode = DMA_NORMAL;
+    hdma_fmac_write.Init.Mode = DMA_CIRCULAR;
     hdma_fmac_write.Init.Priority = DMA_PRIORITY_LOW;
     if (HAL_DMA_Init(&hdma_fmac_write) != HAL_OK)
     {
@@ -195,7 +237,6 @@ void HAL_FMAC_MspInit(FMAC_HandleTypeDef* hfmac)
     HAL_NVIC_SetPriority(FMAC_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(FMAC_IRQn);
   /* USER CODE BEGIN FMAC_MspInit 1 */
-
   /* USER CODE END FMAC_MspInit 1 */
   }
 
@@ -218,6 +259,7 @@ void HAL_FMAC_MspDeInit(FMAC_HandleTypeDef* hfmac)
     __HAL_RCC_FMAC_CLK_DISABLE();
 
     /* FMAC DMA DeInit */
+    HAL_DMA_DeInit(hfmac->hdmaOut);
     HAL_DMA_DeInit(hfmac->hdmaIn);
 
     /* FMAC interrupt DeInit */
@@ -272,11 +314,11 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
 
     /* TIM6 interrupt DeInit */
   /* USER CODE BEGIN TIM6:TIM6_DAC_IRQn disable */
-    /**
-    * Uncomment the line below to disable the "TIM6_DAC_IRQn" interrupt
-    * Be aware, disabling shared interrupt may affect other IPs
-    */
-    /* HAL_NVIC_DisableIRQ(TIM6_DAC_IRQn); */
+		/**
+		 * Uncomment the line below to disable the "TIM6_DAC_IRQn" interrupt
+		 * Be aware, disabling shared interrupt may affect other IPs
+		 */
+		/* HAL_NVIC_DisableIRQ(TIM6_DAC_IRQn); */
   /* USER CODE END TIM6:TIM6_DAC_IRQn disable */
 
   /* USER CODE BEGIN TIM6_MspDeInit 1 */

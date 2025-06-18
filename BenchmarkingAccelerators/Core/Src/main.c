@@ -41,8 +41,10 @@
 
 /* Private variables ---------------------------------------------------------*/
 DAC_HandleTypeDef hdac1;
+DMA_HandleTypeDef hdma_dac1_ch1;
 
 FMAC_HandleTypeDef hfmac;
+DMA_HandleTypeDef hdma_fmac_read;
 DMA_HandleTypeDef hdma_fmac_write;
 
 TIM_HandleTypeDef htim6;
@@ -87,7 +89,7 @@ int main(void) {
 	HAL_Init();
 
 	/* USER CODE BEGIN Init */
-	//arm_fir_init_q15(&A, NUMTAPS, fir_coeffs, firStateQ15, BLOCK_SIZE);
+//	arm_fir_init_q15(&A, NUMTAPS, fir_coeffs, firStateQ15, BLOCK_SIZE);
 //	q15_t *cmsis_firCoeffs = &fir_coeffs;
 //	q15_t *cmsis_firStateq15 = &firStateQ15;
 //	cmsis_fir_q15_init(&A, NUMTAPS, cmsis_firCoeffs, cmsis_firStateq15, BLOCK_SIZE);
@@ -106,24 +108,41 @@ int main(void) {
 	MX_FMAC_Init();
 	MX_DAC1_Init();
 	MX_TIM6_Init();
-
 	/* USER CODE BEGIN 2 */
 	/* declare a filter configuration structure */
+
 	FMAC_FilterConfigTypeDef sFmacConfig;
+
+//FIR Filters
+	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, NULL, 0,
+			fir_coeffs, 21, FMAC_BUFFER_ACCESS_POLLING,
+			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
+			21, 0, 0);
+
+//IIR Filters
+//	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, ema_a_coeffs,
+//			EMA_NUM_A_COEFFS, ema_b_coeffs, EMA_NUM_B_COEFFS,
+//			FMAC_BUFFER_ACCESS_POLLING,
+//			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED,
+//			FMAC_FUNC_IIR_DIRECT_FORM_1,
+//			EMA_NUM_B_COEFFS, EMA_NUM_A_COEFFS, 0);
+
+//FIR DMA Filter config
+//	HAL_DMA_Init(&hdma_fmac_read);
+//	HAL_DMA_Init(&hdma_fmac_write);
+//
 //	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, NULL, 0,
-//			fir_coeffs, 21, FMAC_BUFFER_ACCESS_POLLING,
+//			fir_coeffs, 21, FMAC_BUFFER_ACCESS_DMA,
 //			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
 //			21, 0, 0);
-	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, ema_a_coeffs, EMA_NUM_A_COEFFS,
-			ema_b_coeffs, EMA_NUM_B_COEFFS, FMAC_BUFFER_ACCESS_POLLING,
-			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_IIR_DIRECT_FORM_1,
-			EMA_NUM_B_COEFFS, EMA_NUM_A_COEFFS, 0);
 
-	/* Configure the FMAC */
+//	/* Configure the FMAC */
 	fmac_StartWithTimerIRQ(&hfmac, &sFmacConfig, &htim6, &hdac1);
 
-//	HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
-//	HAL_TIM_Base_Start_IT(&htim6);
+//	fmac_StartWithTimerIRQ_DMA(&hfmac, &sFmacConfig, &htim6, &hdac1);
+
+	HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
+	HAL_TIM_Base_Start_IT(&htim6);
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -284,7 +303,8 @@ static void MX_TIM6_Init(void) {
 		Error_Handler();
 	}
 	/* USER CODE BEGIN TIM6_Init 2 */
-
+	htim6.Instance->CR2 &= ~TIM_CR2_MMS;
+	htim6.Instance->CR2 |= TIM_TRGO_UPDATE;
 	/* USER CODE END TIM6_Init 2 */
 
 }
@@ -302,7 +322,27 @@ static void MX_DMA_Init(void) {
 	/* DMA1_Channel1_IRQn interrupt configuration */
 	HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
 	HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+	/* DMA1_Channel2_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
+	/* DMA1_Channel3_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(DMA1_Channel3_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(DMA1_Channel3_IRQn);
 
+	DMAMUX1_RequestGenerator0->RGCR = (DMAMUX_SIG_ID_TIM6_UP
+			<< DMAMUX_RGxCR_SIG_ID_Pos) |
+	DMAMUX_RGxCR_GPOL_RISING |
+	DMAMUX_RGxCR_GE;
+}
+
+void HAL_FMAC_OutputDataReadyCallback(FMAC_HandleTypeDef *hfmac) {
+	if (__HAL_FMAC_GET_FLAG(hfmac, FMAC_FLAG_YEMPTY) == RESET) // Y buffer has value
+			{
+		int16_t result = hfmac->Instance->RDATA;  // Get filtered Q15 sample
+		// Scale to 12-bit (0–4095), assuming Q15 input range
+		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4);
+		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R,  dacVal);
+	}
 }
 
 /**
@@ -372,18 +412,18 @@ void Error_Handler(void) {
 }
 
 #ifdef  USE_FULL_ASSERT
-	/**
-	  * @brief  Reports the name of the source file and the source line number
-	  *         where the assert_param error has occurred.
-	  * @param  file: pointer to the source file name
-	  * @param  line: assert_param error line source number
-	  * @retval None
-	  */
-	void assert_failed(uint8_t *file, uint32_t line)
-	{
-	  /* USER CODE BEGIN 6 */
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
 	  /* User can add his own implementation to report the file name and line number,
 		 ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-	  /* USER CODE END 6 */
-	}
-	#endif /* USE_FULL_ASSERT */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */

@@ -1,9 +1,5 @@
 #include "filter_coeffs.h"
 
-int16_t ema_a_coeffs[EMA_NUM_A_COEFFS] = {
-    32767, -29491
-};
-
-int16_t ema_b_coeffs[EMA_NUM_B_COEFFS] = {
-    32767, -29491
+int16_t fir_coeffs[NUM_TAPS] = {
+    0, -70, -207, -380, -405, 0, 1041, 2668, 4505, 5968, 6526, 5968, 4505, 2668, 1041, 0, -405, -380, -207, -70, 0
 };
