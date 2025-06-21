@@ -68,6 +68,3 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 > Note: Power estimation is relative, inferred from CPU usage (no power profiler used).
 
 ---
-
-## 📂 Project Structure
-
