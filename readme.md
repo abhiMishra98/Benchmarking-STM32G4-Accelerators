@@ -4,7 +4,7 @@ This repository presents a benchmarking study of different FIR filtering impleme
 
 - **CMSIS-DSP based FIR filtering**
 - **FMAC (Filter Math Accelerator) based FIR filtering**
-- **FMAC with DMA Integration** (primary focus)
+- **DMA Synchronisation - FMAC with DMA Integration** (primary focus)
 
 ## 📌 Project Objective
 
