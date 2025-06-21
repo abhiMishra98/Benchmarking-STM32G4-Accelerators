@@ -9,10 +9,10 @@ b = signal.firwin(num_taps, cutoff)
 
 # Design FIR high-pass filter
 # num_taps = 21
-# cutoff = 0.2  #normalized frequency. 1 being the Nyquist frequency, so cutoff shud be 0<cutoff<1
+# cutoff = 0.1  #normalized frequency. 1 being the Nyquist frequency, so cutoff shud be 0<cutoff<1
 # b = signal.firwin(num_taps,cutoff,pass_zero=False) #for high pass filter
 
-# Convert to Q15 fixed-point format with clipping to int16_t range. Use for FIR filter
+# # Convert to Q15 fixed-point format with clipping to int16_t range. Use for FIR filter
 q15_scale = 2**15
 b_q15 = np.round(b * q15_scale).astype(np.int32)  # temporarily promote to int32 to handle overflows
 b_q15 = np.clip(b_q15, -32768, 32767).astype(np.int16)  # clip to int16_t range

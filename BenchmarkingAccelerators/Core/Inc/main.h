@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.h
+ * @brief          : Header for main.c file.
+ *                   This file contains the common defines of the application.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -34,6 +34,7 @@ extern "C" {
 #include <math.h>
 #include "arm_math.h"
 #include "filter_coeffs.h"
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -53,7 +54,6 @@ extern "C" {
 #define DMA_BUFFER_SIZE	128
 #define DAC_DMA_BUF_LEN 64
 
-
 //DMAMUX for setting timer interrupt at 48KHz
 #define DMAMUX_SIG_ID_TIM6_UP     8
 #define DMAMUX_RGxCR_GPOL_RISING DMAMUX_RGxCR_GPOL_0
@@ -69,6 +69,13 @@ extern q15_t firStateQ15[FIR_STATE_LEN];
 extern int16_t lut[256];
 extern DMA_HandleTypeDef hdma_fmac_read;
 extern DMA_HandleTypeDef hdma_fmac_write;
+extern UART_HandleTypeDef hlpuart1;
+
+//For cycle counting in FMAC+DMA Integration
+extern volatile uint32_t fmac_cycles;
+extern volatile int16_t cycleCounter;
+extern volatile bool fmac_done;
+extern volatile uint32_t fmac_result_cycles;
 
 extern uint32_t dac_dma_buffer[DAC_DMA_BUF_LEN];
 extern uint8_t dac_dma_index;

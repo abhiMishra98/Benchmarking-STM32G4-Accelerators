@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="hdma_fmac_write"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="DMA"/>
+			<item value="GPIO"/>
+			<item value="Alternate"/>
+			<item value="outputData"/>
+			<item value="output"/>
 			<item value="/* USER CODE BEGIN Header */"/>
 			<item value="hdma_fmac_write"/>
 			<item value="hdma_fmac_read"/>
-			<item value="DMA"/>
 			<item value="__HAL_FMAC_GET_FLAG"/>
 			<item value="FMAC"/>
 			<item value="HAL_DAC_Start"/>
@@ -19,10 +23,6 @@
 			<item value="clear"/>
 			<item value="clearPending"/>
 			<item value="FMAC_FUNC_CONVO_FIR"/>
-			<item value="Function"/>
-			<item value="FMAC_Functions"/>
-			<item value="Filter"/>
-			<item value="FMAC_HandleTypeDef hfmac"/>
 		</list>
 		<list key="replacehistory">
 		</list>
