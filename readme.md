@@ -68,3 +68,11 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 > Note: Power estimation is relative, inferred from CPU usage (no power profiler used).
 
 ---
+## 📊 Filter Results
+
+### 1. CMSIS-DSP Q15 - 
+![CMSIS-DSP](images/CMSIS_FIR_Q15.png)
+
+
+### 2. FMAC Core - 
+![FMAC Flow](images/FMAC_Core.png)
