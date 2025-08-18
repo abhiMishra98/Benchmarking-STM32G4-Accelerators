@@ -75,4 +75,10 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 
 
 ### 2. FMAC Core - 
-![FMAC Flow](images/FMAC_Core.png)
+IIR implementation
+1) alpha = 0.5
+![FMAC Flow](images/IIR_alpha5_FMAC.png)
+
+1) alpha = 0.7
+![FMAC Flow](images/IIR_alpha7_FMAC.png)
+
