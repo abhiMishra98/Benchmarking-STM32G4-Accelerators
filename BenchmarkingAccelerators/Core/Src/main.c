@@ -40,6 +40,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc1;
+
 DAC_HandleTypeDef hdac1;
 DMA_HandleTypeDef hdma_dac1_ch1;
 
@@ -63,17 +65,22 @@ static void MX_FMAC_Init(void);
 static void MX_DAC1_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_LPUART1_UART_Init(void);
+static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
 q15_t inputSample[BLOCK_SIZE];
 q15_t filteredSample[BLOCK_SIZE];
 arm_fir_instance_q15 A;
+arm_biquad_casd_df1_inst_q15 biq_t;
 uint16_t blockLen = BLOCK_SIZE;
 q15_t firStateQ15[FIR_STATE_LEN];
-
+q15_t biquad_state[4] = { 0 };
 volatile uint32_t fmac_cycles = 0;
 volatile int16_t cycleCounter = 0;
 volatile bool fmac_done = false;
 volatile uint32_t fmac_result_cycles = 0;
+int16_t globalArray[100];
+volatile uint8_t buffer_ready = 0;
+int16_t buf[500];
 
 /* USER CODE END PFP */
 
@@ -97,6 +104,10 @@ int main(void) {
 	HAL_Init();
 
 	/* USER CODE BEGIN Init */
+//	int16_t biquadCffs_q15[6] = { ema_b_coeffs[0], 0, 0, 0, ema_a_coeffs[0], 0 };
+//	int16_t biquadCffs_q15[5] = { 158, 316, 158, -59227, 27099 };
+//
+//	arm_biquad_cascade_df1_init_q15(&biq_t, 1, biquadCffs_q15, biquad_state, 0);
 //	arm_fir_init_q15(&A, NUMTAPS, fir_coeffs, firStateQ15, BLOCK_SIZE);
 //	q15_t *cmsis_firCoeffs = &fir_coeffs;
 //	q15_t *cmsis_firStateq15 = &firStateQ15;
@@ -120,56 +131,54 @@ int main(void) {
 	MX_DAC1_Init();
 	MX_TIM6_Init();
 	MX_LPUART1_UART_Init();
+	MX_ADC1_Init();
 	/* USER CODE BEGIN 2 */
 	/* declare a filter configuration structure */
 
 	FMAC_FilterConfigTypeDef sFmacConfig;
-
-//FIR Filters
-	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, NULL, 0,
-			fir_coeffs, 21, FMAC_BUFFER_ACCESS_POLLING,
-			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
-			21, 0, 0);
-
+////	FIR Filters
+//	fmac_config(&sFmacConfig, 51, 100, 1, 0, 61, 151, 100, 1, NULL, 0,
+//			fir_coeffs, 21, FMAC_BUFFER_ACCESS_POLLING,
+//			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
+//			61, 0, 0);
 //IIR Filters
 //	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, ema_a_coeffs,
-//			EMA_NUM_A_COEFFS, ema_b_coeffs, EMA_NUM_B_COEFFS,
-//			FMAC_BUFFER_ACCESS_POLLING,
-//			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED,
-//			FMAC_FUNC_IIR_DIRECT_FORM_1,
-//			EMA_NUM_B_COEFFS, EMA_NUM_A_COEFFS, 0);
-
+//	EMA_NUM_A_COEFFS, ema_b_coeffs, EMA_NUM_B_COEFFS,
+//	FMAC_BUFFER_ACCESS_POLLING,
+//	FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED,
+//	FMAC_FUNC_IIR_DIRECT_FORM_1,
+//	EMA_NUM_B_COEFFS, EMA_NUM_A_COEFFS, 0);
+//			char buffer[128] = { 0 };
+//			sprintf(buffer + strlen(buffer), "%s", "Hello");
+//			HAL_UART_Transmit(&hlpuart1, buffer, strlen(buffer), 1);
 //FIR DMA Filter config
-//	HAL_DMA_Init(&hdma_fmac_read);
-//	HAL_DMA_Init(&hdma_fmac_write);
+	HAL_DMA_Init(&hdma_fmac_read);
+	HAL_DMA_Init(&hdma_fmac_write);
+	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, ema_a_coeffs,
+		EMA_NUM_A_COEFFS, ema_b_coeffs, EMA_NUM_B_COEFFS,
+		FMAC_BUFFER_ACCESS_DMA,
+		FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED,
+		FMAC_FUNC_IIR_DIRECT_FORM_1,
+		EMA_NUM_B_COEFFS, EMA_NUM_A_COEFFS, 0);
 //
 //	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, NULL, 0,
 //			fir_coeffs, 21, FMAC_BUFFER_ACCESS_DMA,
 //			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
 //			21, 0, 0);
-
 //	/* Configure the FMAC */
 	fmac_StartWithTimerIRQ(&hfmac, &sFmacConfig, &htim6, &hdac1);
-
 //	fmac_StartWithTimerIRQ_DMA(&hfmac, &sFmacConfig, &htim6, &hdac1);
-
-//	HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
-//	HAL_TIM_Base_Start_IT(&htim6);
+	HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
+	HAL_ADC_Start_IT(&hadc1);
+	HAL_TIM_Base_Start(&htim6);
+	HAL_TIM_Base_Start_IT(&htim6);
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1) {
 		/* USER CODE END WHILE */
-//		char buffer[] = "A";
-//		HAL_UART_Transmit(&hlpuart1, buffer, strlen(buffer), HAL_MAX_DELAY);
-//		if (fmac_done == true) {
-////			char buffer[128] = { 0 };
-////			sprintf(buffer, "Cycles = %ld\n", fmac_result_cycles);
-//			char buffer[] = "A";
-//			HAL_UART_Transmit(&hlpuart1, buffer, strlen(buffer), 1);
-//			fmac_done = false;
-//		}
+
 		/* USER CODE BEGIN 3 */
 	}
 	/* USER CODE END 3 */
@@ -216,6 +225,70 @@ void SystemClock_Config(void) {
 	if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK) {
 		Error_Handler();
 	}
+}
+
+/**
+ * @brief ADC1 Initialization Function
+ * @param None
+ * @retval None
+ */
+static void MX_ADC1_Init(void) {
+
+	/* USER CODE BEGIN ADC1_Init 0 */
+
+	/* USER CODE END ADC1_Init 0 */
+
+	ADC_MultiModeTypeDef multimode = { 0 };
+	ADC_ChannelConfTypeDef sConfig = { 0 };
+
+	/* USER CODE BEGIN ADC1_Init 1 */
+
+	/* USER CODE END ADC1_Init 1 */
+
+	/** Common config
+	 */
+	hadc1.Instance = ADC1;
+	hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+	hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+	hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+	hadc1.Init.GainCompensation = 0;
+	hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+	hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+	hadc1.Init.LowPowerAutoWait = DISABLE;
+	hadc1.Init.ContinuousConvMode = DISABLE;
+	hadc1.Init.NbrOfConversion = 1;
+	hadc1.Init.DiscontinuousConvMode = DISABLE;
+	hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T6_TRGO;
+	hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
+	hadc1.Init.DMAContinuousRequests = DISABLE;
+	hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+	hadc1.Init.OversamplingMode = DISABLE;
+	if (HAL_ADC_Init(&hadc1) != HAL_OK) {
+		Error_Handler();
+	}
+
+	/** Configure the ADC multi-mode
+	 */
+	multimode.Mode = ADC_MODE_INDEPENDENT;
+	if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK) {
+		Error_Handler();
+	}
+
+	/** Configure Regular Channel
+	 */
+	sConfig.Channel = ADC_CHANNEL_1;
+	sConfig.Rank = ADC_REGULAR_RANK_1;
+	sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+	sConfig.SingleDiff = ADC_SINGLE_ENDED;
+	sConfig.OffsetNumber = ADC_OFFSET_NONE;
+	sConfig.Offset = 0;
+	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK) {
+		Error_Handler();
+	}
+	/* USER CODE BEGIN ADC1_Init 2 */
+
+	/* USER CODE END ADC1_Init 2 */
+
 }
 
 /**
@@ -400,23 +473,6 @@ static void MX_DMA_Init(void) {
 
 }
 
-void HAL_FMAC_OutputDataReadyCallback(FMAC_HandleTypeDef *hfmac) {
-	if (__HAL_FMAC_GET_FLAG(hfmac, FMAC_FLAG_YEMPTY) == RESET) // Y buffer has value
-			{
-//		cycleCounter++;
-		int16_t result = hfmac->Instance->RDATA;  // Get filtered Q15 sample
-//		if (cycleCounter == 256) {
-//			uint32_t end = DWT->CYCCNT;
-//			fmac_result_cycles = end - fmac_cycles;
-//			fmac_done = true; // Set flag to transmit from main loop
-//		}
-		// Scale to 12-bit (0–4095), assuming Q15 input range
-		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4);
-
-		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
-	}
-}
-
 /**
  * @brief GPIO Initialization Function
  * @param None
@@ -459,7 +515,16 @@ static void MX_GPIO_Init(void) {
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_FMAC_OutputDataReadyCallback(FMAC_HandleTypeDef *hfmac) {
+	if (__HAL_FMAC_GET_FLAG(hfmac, FMAC_FLAG_YEMPTY) == RESET) // Y buffer has value
+			{
+		int16_t result = hfmac->Instance->RDATA;  // Get filtered Q15 sample
+		// Scale to 12-bit (0–4095), assuming Q15 input range
+		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4);
+//		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R,  dacVal);
+		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
+		}
+}
 /* USER CODE END 4 */
 
 /**

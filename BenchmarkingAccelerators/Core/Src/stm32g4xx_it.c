@@ -32,6 +32,12 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define Q15_MUL(a,b) ( ( ( (int32_t)(a) * (int32_t)(b) + 16384 ) >> 15 ) )
+#define Q15_SAT(x)  ( ((x) > 32767) ? 32767 : (((x) < -32768) ? -32768 : (x)) )
+/* === put these near globals or just above main() ===================== */
+#define ADC_MID  1241    // average ADC code when input = 1.00 V DC
+#define ADC_FS   2358    // ADC code when input = 1.90 V ( +0.9 V peak )
+/* ===================================================================== */
 
 /* USER CODE END PD */
 
@@ -56,12 +62,14 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern ADC_HandleTypeDef hadc1;
 extern DMA_HandleTypeDef hdma_dac1_ch1;
 extern DAC_HandleTypeDef hdac1;
 extern DMA_HandleTypeDef hdma_fmac_read;
 extern DMA_HandleTypeDef hdma_fmac_write;
 extern FMAC_HandleTypeDef hfmac;
 extern TIM_HandleTypeDef htim6;
+extern uint16_t globalArray[100];
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -233,6 +241,19 @@ void DMA1_Channel3_IRQHandler(void) {
 }
 
 /**
+ * @brief This function handles ADC1 and ADC2 global interrupt.
+ */
+void ADC1_2_IRQHandler(void) {
+	/* USER CODE BEGIN ADC1_2_IRQn 0 */
+
+	/* USER CODE END ADC1_2_IRQn 0 */
+	HAL_ADC_IRQHandler(&hadc1);
+	/* USER CODE BEGIN ADC1_2_IRQn 1 */
+
+	/* USER CODE END ADC1_2_IRQn 1 */
+}
+
+/**
  * @brief This function handles EXTI line[15:10] interrupts.
  */
 void EXTI15_10_IRQHandler(void) {
@@ -251,43 +272,136 @@ void EXTI15_10_IRQHandler(void) {
 void TIM6_DAC_IRQHandler(void) {
 	/* USER CODE BEGIN TIM6_DAC_IRQn 0 */
 	static uint8_t lutIndex = 0;
+	int16_t result;
+//	static uint8_t i = 0;
+
+//	HAL_ADC_Start(&hadc1);  // Start conversion
+//	HAL_ADC_PollForConversion(&hadc1, 10); // Wait for conversion to complete
+//	uint32_t adc_value = HAL_ADC_GetValue(&hadc1);  // Read value
+//	int16_t fmac_input = ((int32_t) adc_value - 2048) << 4;
 
 //	For FMAC
 //	implementation[polling]
-	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
-		int16_t result = hfmac.Instance->RDATA;
-		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4); // scale to 12-bit to feed into our 12-bit DAC
-		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
-	}
-	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
-		hfmac.Instance->WDATA = lut[lutIndex++];
-	}
+//	lutIndex = lutIndex + 70;
+//	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
+//		result = hfmac.Instance->RDATA;
+//		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4); // scale to 12-bit to feed into our 12-bit DAC
+//		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
+//	}
+//	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+////		int16_t fmac_input = ((int32_t) lut[lutIndex] - 2048) << 4;
+//		hfmac.Instance->WDATA = lut[lutIndex];;
+//	}
 //	fmac_FilterSetDAC_TimerISR(&hfmac, &hdac1, &lutIndex);
 //	fmac_FilterSetDAC_TimerISR_DMA(&hfmac, &hdac1, &lutIndex);
 
-//For FIR Implementation
+//For IIR EMA LP Implementation
+//	static int16_t y_prev;
+//	int32_t acc = 0;
+//	lutIndex = lutIndex + 32;
+//	acc = ((int32_t) ema_b_coeffs[0] * lut[lutIndex])
+//			- ((int32_t) ema_a_coeffs[1] * y_prev);
+//	acc = acc >> 15;  // Q15 normalization
+//	if (acc > 32767)
+//		acc = 32767;
+//	if (acc < -32768)
+//		acc = -32768;
+//
+//	y_prev = (int16_t) acc;
+//	uint32_t dac_val = (uint32_t) (((int32_t) y_prev + 32768) >> 4); //Scale to 0–4095
 
-//	arm_fir_q15(&A, &lut[lutIndex++], filteredSample, BLOCK_SIZE);
+//For FIR Implementation
+//	lutIndex = lutIndex + 1;
+//	arm_fir_q15(&A, fmac_input, filteredSample, BLOCK_SIZE);
 //	q15_t q15_val = filteredSample[0];
+////	int16_t q15_val = lut[lutIndex];
 //	uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); //Scale to 0–4095
+////	uint32_t dac_val = (uint32_t) (((int32_t) fmac_input) >> 4); //Scale to 0–4095
 //	HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val);
 
-	if (lutIndex == 255) {
+	if (lutIndex >= 256) {
+
 //		uint32_t end = DWT->CYCCNT;
 //		uint32_t cycles = end - start;
 //		char buffer[128] = { 0 };
 //		sprintf(buffer + strlen(buffer), "Cycles = %ld\n", cycles);
 //		HAL_UART_Transmit(&hlpuart1, buffer, strlen(buffer), 1);
-
 		lutIndex = 0;
 	}
-
 	/* USER CODE END TIM6_DAC_IRQn 0 */
 	HAL_TIM_IRQHandler(&htim6);
 	HAL_DAC_IRQHandler(&hdac1);
 	/* USER CODE BEGIN TIM6_DAC_IRQn 1 */
 
 	/* USER CODE END TIM6_DAC_IRQn 1 */
+}
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
+	/* Prevent unused argument(s) compilation warning */
+	if (hadc->Instance == ADC1) {
+//		ADC readings
+		uint16_t adc_value = (uint16_t) HAL_ADC_GetValue(hadc);
+		int16_t result;
+
+//		CMSIS-FIR implementation
+//		arm_fir_q15(&A, &fir_input, filteredSample, BLOCK_SIZE);
+//		q15_t q15_val = filteredSample[0];
+//		uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); //Scale to 0–4095
+//		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val);
+
+//EMA filter implementation
+//For Q15
+//		float volts_in = (adc_value / 4095.0f) * 3.3f; // convert ADC code to volts
+//		float centered = volts_in - 1.0f;  // remove DC offset
+//		float normalized = centered / 0.5f;  // scale to ±1
+//		// saturate if needed
+//		if (normalized > 1.0f)
+//			normalized = 1.0f;
+//		if (normalized < -1.0f)
+//			normalized = -1.0f;
+//		// convert to Q15
+//		int16_t x_q15 = (int16_t) (normalized * 32767.0f);
+//		// EMA filter in Q15
+//		static int16_t y_prev = 0;
+//		const int16_t alpha_q15 = 22937;        // Q15 for 0.7
+//		// EMA: y[n] = α x[n] + (1 - α) y[n-1]
+//		int16_t one_minus_alpha_q15 = 32767 - alpha_q15;
+//		int16_t y_q15 = Q15_MUL(alpha_q15,
+//				x_q15) + Q15_MUL(one_minus_alpha_q15, y_prev);
+//		y_prev = y_q15;
+//		//convert to Q15
+//		int16_t q15_value = (int16_t) (normalized * 32767.0f);
+////		uint16_t dac_value = (uint16_t) (((int32_t) q15_value + 32768) * 4095
+////				/ 65535);
+//		uint16_t dac_value2 = (uint16_t) (((int32_t) y_q15 + 32768) * 4095
+//				/ 65535);
+//		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_value2);
+
+//FMAC-FIR & IIR implementation
+		float volts_in = (adc_value / 4095.0f) * 3.3f; // convert ADC code to volts
+		float centered = volts_in - 0.9575f;  // remove DC offset
+		float normalized = centered / 0.9575f;  // scale to ±1
+		int32_t q15_input = (normalized * 32767.0f);
+		if (q15_input > 32767) {
+			q15_input = 32767;
+		} else if (q15_input < -32768) {
+			q15_input = -32768;
+		} else {
+			//nothing
+		}
+		if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) == RESET) {
+			result = hfmac.Instance->RDATA;
+		}
+		if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) == RESET) {
+			hfmac.Instance->WDATA = (int16_t) q15_input;
+		}
+		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4); // scale to 12-bit to feed into our 12-bit DAC
+		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
+	}
+
+	/* NOTE : This function should not be modified. When the callback is needed,
+	 function HAL_ADC_ConvCpltCallback must be implemented in the user file.
+	 */
 }
 
 /**

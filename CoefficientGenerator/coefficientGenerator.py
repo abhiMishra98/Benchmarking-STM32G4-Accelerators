@@ -13,6 +13,7 @@ b = signal.firwin(num_taps, cutoff)
 # b = signal.firwin(num_taps,cutoff,pass_zero=False) #for high pass filter
 
 # # Convert to Q15 fixed-point format with clipping to int16_t range. Use for FIR filter
+
 q15_scale = 2**15
 b_q15 = np.round(b * q15_scale).astype(np.int32)  # temporarily promote to int32 to handle overflows
 b_q15 = np.clip(b_q15, -32768, 32767).astype(np.int16)  # clip to int16_t range
@@ -39,20 +40,27 @@ with open(source_path, "w") as cfile:
     cfile.write("\n};\n")
 
 
-# # Design IIR Low-Pass filter
-# # --- Parameters ---
-# alpha = 0.9  # smoothing factor (smaller = more smoothing)
+# Design IIR Low-Pass filter
+# --- Parameters ---
+#for Fs = 48000Hz ; Fc = 800Hz ; alpha = 1 -  e^(-2pi*Fc/Fs)
 
-# # # --- IIR EMA Coefficients ---
-# # b_coeffs = [alpha]                   # b0
-# # a_coeffs = [1.0, -(1.0 - alpha)]     # a0 = 1, a1 = -(1 - alpha)
+# Fs = 48000;    # sampling frequency (Hz)
+
+# # desired cutoff frequency
+# Fc = 500;      #Hz
+
+# alpha = 1 - np.exp(-2 * np.pi * Fc / Fs)
+
+# # --- IIR EMA Coefficients ---
+# b_coeffs = [alpha]                   # b0
+# a_coeffs = [-(1.0 - alpha)]     # a0 = 1, a1 = -(1 - alpha)
 
 
 # # --- IIR HP EMA Coefficients ---
 # # b[n] = [1, -alpha]
-# # a[n] = [1, -alpha]
-# b_coeffs = [1.0, -alpha]
-# a_coeffs = [1.0, -alpha]
+# # a[n] = [1, -alpha]s
+# # b_coeffs = [1.0, -alpha]
+# # a_coeffs = [1.0, -alpha]
 
 # # --- Convert to Q15 ---
 # def to_q15(vals):

@@ -1,0 +1,10 @@
+12:18:42 **** Build of configuration Debug for project adc2dac ****
+make -j8 all 
+arm-none-eabi-size  adc2dac.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23544	     20	   1924	  25488	   6390	adc2dac.elf
+Finished building: default.size.stdout
+ 
+
+12:18:42 Build Finished. 0 errors, 0 warnings. (took 669ms)
+

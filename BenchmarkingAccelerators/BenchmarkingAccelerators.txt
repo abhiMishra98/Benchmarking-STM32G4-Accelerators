@@ -1,0 +1,92 @@
+Configuration	BenchmarkingAccelerators
+STM32CubeMX 	6.10.0
+Date	08/10/2025
+MCU	STM32G474RETx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+ADC1	IN1 Single-ended	ADC1_IN1	PA0
+DAC1	Connected to external pin only	DAC1_OUT1	PA4
+DAC1	Connected to external pin only	DAC1_OUT2	PA5
+FMAC	Activated	FMAC_VS_FMAC	VP_FMAC_VS_FMAC
+LPUART1	Asynchronous	LPUART1_RX	PA3
+LPUART1	Asynchronous	LPUART1_TX	PA2
+SYS	Serial Wire	SYS_JTCK-SWCLK	PA14
+SYS	Serial Wire	SYS_JTMS-SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+SYS	Dead Battery Signals disabled	SYS_VS_DBSignals	VP_SYS_VS_DBSignals
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+2	PC13	GPIO_EXTI13	B1 [blue push button]
+3	PC14-OSC32_IN*	RCC_OSC32_IN	
+4	PC15-OSC32_OUT*	RCC_OSC32_OUT	
+5	PF0-OSC_IN*	RCC_OSC_IN	
+6	PF1-OSC_OUT*	RCC_OSC_OUT	
+7	PG10-NRST	GPIO_Output	LD2 [green led]
+12	PA0	ADC1_IN1	
+14	PA2	LPUART1_TX	LPUART1_TX [STLINKV3E_VCP_RX]
+17	PA3	LPUART1_RX	LPUART1_RX [STLINKV3E_VCP_TX]
+18	PA4	DAC1_OUT1	
+19	PA5	DAC1_OUT2	
+49	PA13	SYS_JTMS-SWDIO	T_SWDIO
+50	PA14	SYS_JTCK-SWCLK	T_SWCLK
+56	PB3*	SYS_JTDO-SWO	T_SWO
+PERIPHERALS	MODES	FUNCTIONS	PINS
+ADC1	IN1 Single-ended	ADC1_IN1	PA0
+DAC1	Connected to external pin only	DAC1_OUT1	PA4
+DAC1	Connected to external pin only	DAC1_OUT2	PA5
+FMAC	Activated	FMAC_VS_FMAC	VP_FMAC_VS_FMAC
+LPUART1	Asynchronous	LPUART1_RX	PA3
+LPUART1	Asynchronous	LPUART1_TX	PA2
+SYS	Serial Wire	SYS_JTCK-SWCLK	PA14
+SYS	Serial Wire	SYS_JTMS-SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+SYS	Dead Battery Signals disabled	SYS_VS_DBSignals	VP_SYS_VS_DBSignals
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+2	PC13	GPIO_EXTI13	B1 [blue push button]
+3	PC14-OSC32_IN*	RCC_OSC32_IN	
+4	PC15-OSC32_OUT*	RCC_OSC32_OUT	
+5	PF0-OSC_IN*	RCC_OSC_IN	
+6	PF1-OSC_OUT*	RCC_OSC_OUT	
+7	PG10-NRST	GPIO_Output	LD2 [green led]
+12	PA0	ADC1_IN1	
+14	PA2	LPUART1_TX	LPUART1_TX [STLINKV3E_VCP_RX]
+17	PA3	LPUART1_RX	LPUART1_RX [STLINKV3E_VCP_TX]
+18	PA4	DAC1_OUT1	
+19	PA5	DAC1_OUT2	
+49	PA13	SYS_JTMS-SWDIO	T_SWDIO
+50	PA14	SYS_JTCK-SWCLK	T_SWCLK
+56	PB3*	SYS_JTDO-SWO	T_SWO
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : BenchmarkingAccelerators
+Project Folder : D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators
+Toolchain / IDE : STM32CubeIDE
+Firmware Package Name and Version : STM32Cube FW_G4 V1.5.2
+
+
+Code Generation Settings : 
+STM32Cube MCU packages and embedded software packs : Copy only the necessary library files
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : No
+Backup previously generated files when re-generating : No
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : No
+
+
+Toolchains Settings : 
+Compiler Optimizations : 
+
+
+
+
+

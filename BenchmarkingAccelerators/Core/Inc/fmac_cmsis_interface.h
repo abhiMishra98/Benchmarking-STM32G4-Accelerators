@@ -8,7 +8,8 @@
 #ifndef INC_FMAC_CMSIS_INTERFACE_H_
 #define INC_FMAC_CMSIS_INTERFACE_H_
 
-extern int16_t lut[256];
+//extern int16_t lut[256];
+extern int16_t lut50[50];
 
 void cmsis_fir_q15_init(arm_fir_instance_q15 *S, uint16_t numTaps,
 		const q15_t *pCoeffs, q15_t *pState, uint32_t blockSize);

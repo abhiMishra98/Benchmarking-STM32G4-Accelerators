@@ -1,0 +1,13 @@
+2025-08-10 09:27:07,669 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2025-08-10 09:27:11,080 [INFO] ProjectBuilder:4747 - Time for Generating toolchain IDE Files: 5614mS.
+2025-08-10 09:27:11,082 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 1mS.
+2025-08-10 09:27:11,085 [INFO] ProjectBuilder:2947 - Time for Copy CMSIS : 0mS.
+2025-08-10 11:00:48,202 [ERROR] ConfigurationRetriever:142 - IOException on connection: Read timed out
+2025-08-10 11:07:14,432 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-08-10 11:07:14,433 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-08-10 11:07:14,433 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-08-10 11:07:14,434 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-08-10 11:07:14,434 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-08-10 11:07:14,434 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-08-10 11:07:14,434 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-08-10 11:07:14,495 [INFO] IPUIPlugin:80 - create IPUIPlugin
