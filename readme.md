@@ -79,6 +79,11 @@ IIR implementation
 1) alpha = 0.5
 ![FMAC Flow](images/IIR_alpha5_FMAC.png)
 
-1) alpha = 0.7
+2) alpha = 0.7
 ![FMAC Flow](images/IIR_alpha7_FMAC.png)
+
+FIR implementation
+1) Taps = 61
+![FMAC Flow](images/FIR_FMAC_61Tap.png)
+
 
