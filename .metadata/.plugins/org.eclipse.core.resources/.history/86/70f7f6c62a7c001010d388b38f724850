@@ -137,10 +137,10 @@ int main(void) {
 
 	FMAC_FilterConfigTypeDef sFmacConfig;
 ////	FIR Filters
-	fmac_config(&sFmacConfig, 64, 80, 1, 0, 61, 144, 80, 1, NULL, 0,
-			fir_coeffs, 61, FMAC_BUFFER_ACCESS_POLLING,
-			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
-			61, 0, 0);
+//	fmac_config(&sFmacConfig, 51, 100, 1, 0, 61, 151, 100, 1, NULL, 0,
+//			fir_coeffs, 21, FMAC_BUFFER_ACCESS_POLLING,
+//			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
+//			61, 0, 0);
 //IIR Filters
 //	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, ema_a_coeffs,
 //	EMA_NUM_A_COEFFS, ema_b_coeffs, EMA_NUM_B_COEFFS,
@@ -152,14 +152,14 @@ int main(void) {
 //			sprintf(buffer + strlen(buffer), "%s", "Hello");
 //			HAL_UART_Transmit(&hlpuart1, buffer, strlen(buffer), 1);
 //FIR DMA Filter config
-//	HAL_DMA_Init(&hdma_fmac_read);
-//	HAL_DMA_Init(&hdma_fmac_write);
-//	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, ema_a_coeffs,
-//		EMA_NUM_A_COEFFS, ema_b_coeffs, EMA_NUM_B_COEFFS,
-//		FMAC_BUFFER_ACCESS_DMA,
-//		FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED,
-//		FMAC_FUNC_IIR_DIRECT_FORM_1,
-//		EMA_NUM_B_COEFFS, EMA_NUM_A_COEFFS, 0);
+	HAL_DMA_Init(&hdma_fmac_read);
+	HAL_DMA_Init(&hdma_fmac_write);
+	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, ema_a_coeffs,
+		EMA_NUM_A_COEFFS, ema_b_coeffs, EMA_NUM_B_COEFFS,
+		FMAC_BUFFER_ACCESS_DMA,
+		FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED,
+		FMAC_FUNC_IIR_DIRECT_FORM_1,
+		EMA_NUM_B_COEFFS, EMA_NUM_A_COEFFS, 0);
 //
 //	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, NULL, 0,
 //			fir_coeffs, 21, FMAC_BUFFER_ACCESS_DMA,

@@ -31,8 +31,8 @@ source_path = "D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelera
 
 %% Measured data (example)
 % Put your scope readings here. Use Vpp if you read Vpp; otherwise set the flag below.
-measured_freq = 500:500:(500*10);
-measured_amp  = [1.504,1.501,1.503,1.506,1.505,1.455,1.355,0.9808,0.5142,0.1399]; % example values
+measured_freq = 1000:1000:30000;
+measured_amp  = [3.001,2.992,2.972,2.632,0.9802,0.0]; % example values
 
 % --- measurement conventions ---
 measured_is_vpp = true;      % set false if the values above are already Vpk
@@ -46,7 +46,6 @@ else
 end
 
 % Convert to dB relative to the input peak amplitude (same style as EMA block)
-
 measured_dB = 20*log10(meas_vpk / input_vpk + eps);
 
 % Measured -3 dB cutoff (coarse: first point below -3 dB)
@@ -65,23 +64,13 @@ plot(F, theo_dB, 'b-', 'LineWidth', 1.5); hold on;
 plot(measured_freq, measured_dB, 'ro', 'MarkerSize', 7, 'LineWidth', 1.5);
 
 % -3 dB line and cutoff markers
-% yline(y3db, 'k--', '-3 dB', 'LabelVerticalAlignment','bottom');
-% if ~isempty(idx_th), xline(fc_theo, 'k:', sprintf('f_c(th)\\approx %.0f Hz', fc_theo)); end
-% if exist('fc_meas_refined','var')
-%     xline(fc_meas_refined, 'r:', sprintf('f_c(meas)\\approx %.0f Hz', fc_meas_refined));
-% elseif ~isnan(fc_meas)
-%     xline(fc_meas, 'r:', sprintf('f_c(meas)\\approx %.0f Hz', fc_meas));
-% end
-
-% zoom where it matters
-xlim([0 10e3]);                 % or whatever shows passband + transition well
-
-ylim([-60 8]);
-
-% mark worst-case stopband
-stop_idx = F >= 6e3;            % start of stopband (set to your spec)
-Astop = max(theo_dB(stop_idx)); % least attenuation (highest crest)
-% yline(Astop,'m--',sprintf('Worst stopband = %.1f dB',Astop));
+yline(y3db, 'k--', '-3 dB', 'LabelVerticalAlignment','bottom');
+if ~isempty(idx_th), xline(fc_theo, 'k:', sprintf('f_c(th)\\approx %.0f Hz', fc_theo)); end
+if exist('fc_meas_refined','var')
+    xline(fc_meas_refined, 'r:', sprintf('f_c(meas)\\approx %.0f Hz', fc_meas_refined));
+elseif ~isnan(fc_meas)
+    xline(fc_meas, 'r:', sprintf('f_c(meas)\\approx %.0f Hz', fc_meas));
+end
 
 xlabel('Frequency (Hz)');
 ylabel('Magnitude (dB re. input peak)');
