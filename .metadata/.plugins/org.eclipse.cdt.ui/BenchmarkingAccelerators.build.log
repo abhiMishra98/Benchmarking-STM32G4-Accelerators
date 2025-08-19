@@ -1,24 +1,46 @@
-18:59:40 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
+20:49:35 **** Incremental Build of configuration Debug for project BenchmarkingAccelerators ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Include" -I../Core/Inc -I"D:/STM32G4/Benchmarking-STM32G4-Accelerators/BenchmarkingAccelerators/Drivers/DSP_Drivers/Source/FilteringFunctions" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:140:9: warning: implicit declaration of function 'fmac_config' [-Wimplicit-function-declaration]
-  140 |         fmac_config(&sFmacConfig, 64, 80, 1, 0, 61, 144, 80, 1, NULL, 0,
-      |         ^~~~~~~~~~~
-../Core/Src/main.c:169:9: warning: implicit declaration of function 'fmac_StartWithTimerIRQ' [-Wimplicit-function-declaration]
-  169 |         fmac_StartWithTimerIRQ(&hfmac, &sFmacConfig, &htim6, &hdac1);
-      |         ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:134:34: warning: unused variable 'sFmacConfig' [-Wunused-variable]
+  134 |         FMAC_FilterConfigTypeDef sFmacConfig;
+      |                                  ^~~~~~~~~~~
+In file included from ../Core/Src/main.c:20:
+At top level:
+../Core/Inc/main.h:58:14: warning: 'firState' defined but not used [-Wunused-variable]
+   58 | static q15_t firState[NTAPS + BS - 1];
+      |              ^~~~~~~~
+../Core/Inc/main.h:57:29: warning: 'S' defined but not used [-Wunused-variable]
+   57 | static arm_fir_instance_q15 S;
+      |                             ^
+../Core/Src/stm32g4xx_it.c: In function 'TIM6_DAC_IRQHandler':
+../Core/Src/stm32g4xx_it.c:275:17: warning: unused variable 'result' [-Wunused-variable]
+  275 |         int16_t result;
+      |                 ^~~~~~
+../Core/Src/stm32g4xx_it.c: In function 'HAL_ADC_ConvCpltCallback':
+../Core/Src/stm32g4xx_it.c:344:25: warning: unused variable 'result' [-Wunused-variable]
+  344 |                 int16_t result;
+      |                         ^~~~~~
+In file included from ../Core/Src/stm32g4xx_it.c:21:
+At top level:
+../Core/Inc/main.h:58:14: warning: 'firState' defined but not used [-Wunused-variable]
+   58 | static q15_t firState[NTAPS + BS - 1];
+      |              ^~~~~~~~
+../Core/Inc/main.h:57:29: warning: 'S' defined but not used [-Wunused-variable]
+   57 | static arm_fir_instance_q15 S;
+      |                             ^
 arm-none-eabi-gcc -o "BenchmarkingAccelerators.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BenchmarkingAccelerators.map" -Wl,--gc-sections -static -L"D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Drivers\DSP_Drivers\Lib\GCC" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: BenchmarkingAccelerators.elf
  
 arm-none-eabi-size  BenchmarkingAccelerators.elf 
 arm-none-eabi-objdump -h -S BenchmarkingAccelerators.elf  > "BenchmarkingAccelerators.list"
    text	   data	    bss	    dec	    hex	filename
-  29040	    144	   2264	  31448	   7ad8	BenchmarkingAccelerators.elf
+  27344	     20	   2412	  29776	   7450	BenchmarkingAccelerators.elf
 Finished building: default.size.stdout
  
 Finished building: BenchmarkingAccelerators.list
  
 
-18:59:43 Build Finished. 0 errors, 2 warnings. (took 2s.432ms)
+20:49:37 Build Finished. 0 errors, 7 warnings. (took 2s.77ms)
 

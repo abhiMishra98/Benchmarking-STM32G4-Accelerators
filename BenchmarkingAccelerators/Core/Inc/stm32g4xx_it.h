@@ -27,7 +27,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
- extern volatile uint8_t buffer_ready;
  extern int16_t buf[50];
 /* USER CODE END Includes */
 

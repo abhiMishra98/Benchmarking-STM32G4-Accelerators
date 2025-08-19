@@ -46,13 +46,18 @@ extern "C" {
 /* USER CODE BEGIN EC */
 
 #define BLOCK_SIZE 1
-#define FREQ_HZ     100   // sine wave frequency
-#define SAMPLE_RATE 10000  // 1 kHz sample rate
 #define BLOCKLENGTH 1
 #define NUMTAPS 	62
-#define FIR_STATE_LEN (BLOCKLENGTH + NUMTAPS - 1)
+#define FIR_STATE_LEN (BLOCKLENGTH + NUMTAPS)
 #define DMA_BUFFER_SIZE	128
 #define DAC_DMA_BUF_LEN 64
+
+#define NTAPS      62
+#define BS         1
+static arm_fir_instance_q15 S;
+static q15_t firState[NTAPS + BS - 1];
+
+
 
 //DMAMUX for setting timer interrupt at 48KHz
 #define DMAMUX_SIG_ID_TIM6_UP     8
@@ -68,7 +73,6 @@ extern arm_biquad_casd_df1_inst_q15 biq_t;
 extern uint16_t blockLen;
 extern q15_t firStateQ15[FIR_STATE_LEN];
 extern q15_t biquad_state[4];
-extern int16_t lut[256];
 extern DMA_HandleTypeDef hdma_fmac_read;
 extern DMA_HandleTypeDef hdma_fmac_write;
 
@@ -76,12 +80,6 @@ extern UART_HandleTypeDef hlpuart1;
 extern ADC_HandleTypeDef hadc1;
 //For cycle counting in FMAC+DMA Integration
 extern volatile uint32_t fmac_cycles;
-extern volatile int16_t cycleCounter;
-extern volatile bool fmac_done;
-extern volatile uint32_t fmac_result_cycles;
-
-//extern int countGlobalArr = 0;
-
 extern uint32_t dac_dma_buffer[DAC_DMA_BUF_LEN];
 extern uint8_t dac_dma_index;
 /* USER CODE END EC */

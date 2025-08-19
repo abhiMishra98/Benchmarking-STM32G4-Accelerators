@@ -3,10 +3,12 @@ clc; clear; close all;
 
 %% FIR design
 Fs        = 48000;         % Hz
-num_taps  = 61;
+num_taps  = 62;
 cutoff_n  = 0.20;          % normalized (0..1) of Nyquist
 
 b = fir1(num_taps-1, cutoff_n, 'low');   % windowed-sinc
+% For CMSIS-FIR filter
+b = flip(b); 
 
 % Theoretical response
 [H,F]     = freqz(b, 1, 2048, Fs);
@@ -28,11 +30,38 @@ b_q15     = max(min(b_q15, 32767), -32768);
 header_path = "D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Core\Inc\filter_coeffs.h";
 source_path = "D:\STM32G4\Benchmarking-STM32G4-Accelerators\BenchmarkingAccelerators\Core\Src\filter_coeffs.c";
 
+% --- write filter_coeffs.h and filter_coeffs.c ---
+num_taps_export = numel(b_q15);
+
+% make sure folders exist
+[hp,~] = fileparts(header_path); if ~isempty(hp), mkdir(hp); end
+[sp,~] = fileparts(source_path); if ~isempty(sp), mkdir(sp); end
+
+% header
+fid = fopen(header_path,'w'); assert(fid>0,'Failed to open header_path');
+fprintf(fid, ...
+"#ifndef FILTER_COEFFS_H\n#define FILTER_COEFFS_H\n\n#include <stdint.h>\n\n#define NUM_TAPS %d\nextern const int16_t fir_coeffs[NUM_TAPS];\n\n#endif // FILTER_COEFFS_H\n", ...
+num_taps_export);
+fclose(fid);
+
+% source
+fid = fopen(source_path,'w'); assert(fid>0,'Failed to open source_path');
+fprintf(fid, '#include "filter_coeffs.h"\n\nconst int16_t fir_coeffs[NUM_TAPS] = {\n    ');
+for k = 1:num_taps_export
+    fprintf(fid, "%d", b_q15(k));
+    if k < num_taps_export, fprintf(fid, ", "); end
+    if mod(k,8)==0 && k < num_taps_export, fprintf(fid, "\n    "); end
+end
+fprintf(fid, "\n};\n");
+fclose(fid);
+
+fprintf("Wrote %d taps to:\n  %s\n  %s\n", num_taps_export, header_path, source_path);
+
 
 %% Measured data (example)
 % Put your scope readings here. Use Vpp if you read Vpp; otherwise set the flag below.
 measured_freq = 500:500:(500*10);
-measured_amp  = [1.504,1.501,1.503,1.506,1.505,1.455,1.355,0.9808,0.5142,0.1399]; % example values
+measured_amp  = [3.005,2.987,2.980,2.760,0.9808,0.0467,0.0467,0.0467,0.0467,0.0467]; % example values
 
 % --- measurement conventions ---
 measured_is_vpp = true;      % set false if the values above are already Vpk

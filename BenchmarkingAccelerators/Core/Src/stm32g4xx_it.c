@@ -343,17 +343,12 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 		uint16_t adc_value = (uint16_t) HAL_ADC_GetValue(hadc);
 		int16_t result;
 
-//		CMSIS-FIR implementation
-//		arm_fir_q15(&A, &fir_input, filteredSample, BLOCK_SIZE);
-//		q15_t q15_val = filteredSample[0];
-//		uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); //Scale to 0–4095
-//		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val);
-
-//FMAC-FIR & IIR implementation
+		//ADC scaling
 		float volts_in = (adc_value / 4095.0f) * 3.3f; // convert ADC code to volts
 		float centered = volts_in - 0.9575f;  // remove DC offset
 		float normalized = centered / 0.9575f;  // scale to ±1
 		int32_t q15_input = (normalized * 32767.0f);
+
 		if (q15_input > 32767) {
 			q15_input = 32767;
 		} else if (q15_input < -32768) {
@@ -361,15 +356,26 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 		} else {
 			//nothing
 		}
-		if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) == RESET) {
-			result = hfmac.Instance->RDATA;
-		}
-		if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) == RESET) {
+		inputSample[0] = q15_input;
+
+//		CMSIS-FIR implementation
+		arm_fir_q15(&A, inputSample, filteredSample, 1);
+		q15_t q15_val = filteredSample[0];
+		uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); //Scale to 0–4095
+		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val);
+
+		//FMAC-FIR & IIR implementation
+//		if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) == RESET) {
+//			result = hfmac.Instance->RDATA;
+//		}
+//		if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) == RESET) {
 //			hfmac.Instance->WDATA = ((int16_t) q15_input); For IIR filters
-			hfmac.Instance->WDATA = ((int16_t) q15_input) >> 1;
-		}
-		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4); // scale to 12-bit to feed into our 12-bit DAC
-		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
+//			hfmac.Instance->WDATA = ((int16_t) q15_input) >> 1;
+//		}
+//		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4); // scale to 12-bit to feed into our 12-bit DAC
+
+//		uint32_t dacVal = (uint32_t) (((int32_t) q15_val + 32768) >> 4); // scale to 12-bit to feed into our 12-bit DAC
+//		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
 	}
 
 	/* NOTE : This function should not be modified. When the callback is needed,

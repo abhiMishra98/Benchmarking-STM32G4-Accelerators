@@ -66,22 +66,19 @@ static void MX_DAC1_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_LPUART1_UART_Init(void);
 static void MX_ADC1_Init(void);
+
 /* USER CODE BEGIN PFP */
-q15_t inputSample[BLOCK_SIZE];
-q15_t filteredSample[BLOCK_SIZE];
+q15_t inputSample[1];
+q15_t filteredSample[1];
 arm_fir_instance_q15 A;
 arm_biquad_casd_df1_inst_q15 biq_t;
+q15_t biquad_state[4] = { 0 };
+
 uint16_t blockLen = BLOCK_SIZE;
 q15_t firStateQ15[FIR_STATE_LEN];
-q15_t biquad_state[4] = { 0 };
-volatile uint32_t fmac_cycles = 0;
-volatile int16_t cycleCounter = 0;
-volatile bool fmac_done = false;
-volatile uint32_t fmac_result_cycles = 0;
-int16_t globalArray[100];
-volatile uint8_t buffer_ready = 0;
-int16_t buf[500];
 
+volatile uint32_t fmac_cycles = 0;
+int16_t buf[500];
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -108,13 +105,12 @@ int main(void) {
 //	int16_t biquadCffs_q15[5] = { 158, 316, 158, -59227, 27099 };
 //
 //	arm_biquad_cascade_df1_init_q15(&biq_t, 1, biquadCffs_q15, biquad_state, 0);
-//	arm_fir_init_q15(&A, NUMTAPS, fir_coeffs, firStateQ15, BLOCK_SIZE);
-//	q15_t *cmsis_firCoeffs = &fir_coeffs;
-//	q15_t *cmsis_firStateq15 = &firStateQ15;
-//	cmsis_fir_q15_init(&A, NUMTAPS, cmsis_firCoeffs, cmsis_firStateq15, BLOCK_SIZE);
+	arm_fir_init_q15(&A, NUM_TAPS, fir_coeffs, firStateQ15,1);
+
 //	CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
 //	DWT->CYCCNT = 0;
 //	DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+
 	/* USER CODE END Init */
 
 	/* Configure the system clock */
@@ -136,11 +132,11 @@ int main(void) {
 	/* declare a filter configuration structure */
 
 	FMAC_FilterConfigTypeDef sFmacConfig;
-////	FIR Filters
-	fmac_config(&sFmacConfig, 64, 80, 1, 0, 61, 144, 80, 1, NULL, 0,
-			fir_coeffs, 61, FMAC_BUFFER_ACCESS_POLLING,
-			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
-			61, 0, 0);
+//	FIR Filters
+//	fmac_config(&sFmacConfig, 64, 80, 1, 0, 61, 144, 80, 1, NULL, 0,
+//			fir_coeffs, 61, FMAC_BUFFER_ACCESS_POLLING,
+//			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
+//			61, 0, 0);
 //IIR Filters
 //	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, ema_a_coeffs,
 //	EMA_NUM_A_COEFFS, ema_b_coeffs, EMA_NUM_B_COEFFS,
@@ -166,7 +162,7 @@ int main(void) {
 //			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
 //			21, 0, 0);
 //	/* Configure the FMAC */
-	fmac_StartWithTimerIRQ(&hfmac, &sFmacConfig, &htim6, &hdac1);
+//	fmac_StartWithTimerIRQ(&hfmac, &sFmacConfig, &htim6, &hdac1);
 //	fmac_StartWithTimerIRQ_DMA(&hfmac, &sFmacConfig, &htim6, &hdac1);
 	HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
 	HAL_ADC_Start_IT(&hadc1);
