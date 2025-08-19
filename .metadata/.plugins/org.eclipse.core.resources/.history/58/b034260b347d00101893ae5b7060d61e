@@ -359,15 +359,12 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 		inputSample[0] = q15_input;
 
 //		CMSIS-FIR & IIR implementation
-//		arm_fir_q15(&A, inputSample, filteredSample, 1); //For FIR
+//		arm_fir_q15(&A, inputSample, filteredSample, 1);
 		arm_biquad_cascade_df1_q15(&armIIRInstanceQ15, inputSample, filteredSample, 1);
 		q15_t q15_val = filteredSample[0];
-//		uint32_t dacVal = (uint32_t) (((int32_t) q15_val + 32768) >> 4);  //For FIR
-		uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); //For IIR
+//		uint32_t dacVal = (uint32_t) (((int32_t) q15_val + 32768) >> 4); // scale to 12-bit to feed into our 12-bit DAC
+		uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); //Scale to 0–4095
 		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val);
-
-
-
 
 		//FMAC-FIR & IIR implementation
 //		if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) == RESET) {

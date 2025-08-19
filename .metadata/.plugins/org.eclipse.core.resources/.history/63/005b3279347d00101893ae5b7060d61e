@@ -366,9 +366,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 		uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); //For IIR
 		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val);
 
-
-
-
 		//FMAC-FIR & IIR implementation
 //		if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) == RESET) {
 //			result = hfmac.Instance->RDATA;
