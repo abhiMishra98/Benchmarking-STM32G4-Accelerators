@@ -46,15 +46,16 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 ## 📐 FIR Filter Design
 
 - **Filter Type**: Low-pass FIR
-- **Taps**: 21
+- **Taps**: 61
 - **Cutoff Frequency**: Normalized at 0.2
-- **Coefficient Generation**: Python (`scipy.signal.firwin`)
+- **Coefficient Generation**: used fir1 MATLAB
 - **Format**: Converted to Q15 for fixed-point compatibility
 - Integrated into STM32CubeIDE project as `.h` and `.c` files
 
 ---
 
 ## 📊 Benchmarking Results
+The below results are for IIR EMA implementation - 
 
 | Metric                  | CMSIS-DSP     | FMAC          | FMAC + DMA     |
 |------------------------|---------------|---------------|----------------|
@@ -85,5 +86,6 @@ IIR implementation
 FIR implementation
 1) Taps = 61
 ![FMAC Flow](images/FIR_FMAC_61Tap.png)
+
 
 
