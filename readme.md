@@ -46,7 +46,7 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 ## 📐 FIR Filter Design
 
 - **Filter Type**: Low-pass FIR
-- **Taps**: 61
+- **Taps**: 62
 - **Cutoff Frequency**: Normalized at 0.2
 - **Coefficient Generation**: used fir1 MATLAB
 - **Format**: Converted to Q15 for fixed-point compatibility
@@ -90,6 +90,7 @@ IIR implementation
 FIR implementation
 1) Taps = 62
 ![FMAC Flow](images/FIR_FMAC_61Tap.png)
+
 
 
 
