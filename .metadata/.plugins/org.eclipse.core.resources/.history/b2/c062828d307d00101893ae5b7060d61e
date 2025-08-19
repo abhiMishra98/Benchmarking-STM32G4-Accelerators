@@ -360,7 +360,19 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 
 //		CMSIS-FIR implementation
 //		arm_fir_q15(&A, inputSample, filteredSample, 1);
-		arm_biquad_cascade_df1_q15(&armIIRInstanceQ15, inputSample, filteredSample, 1);
+			static int16_t y_prev;
+			int32_t acc = 0;
+			lutIndex = lutIndex + 32;
+			acc = ((int32_t) ema_b_coeffs[0] * lut[lutIndex])
+					- ((int32_t) ema_a_coeffs[1] * y_prev);
+			acc = acc >> 15;  // Q15 normalization
+			if (acc > 32767)
+				acc = 32767;
+			if (acc < -32768)
+				acc = -32768;
+
+			y_prev = (int16_t) acc;
+			uint32_t dac_val = (uint32_t) (((int32_t) y_prev + 32768) >> 4); //Scale to 0–4095
 		q15_t q15_val = filteredSample[0];
 		uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); //Scale to 0–4095
 		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val);

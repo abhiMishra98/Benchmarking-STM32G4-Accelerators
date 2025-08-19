@@ -52,6 +52,13 @@ extern "C" {
 #define DMA_BUFFER_SIZE	128
 #define DAC_DMA_BUF_LEN 64
 
+#define NTAPS      62
+#define BS         1
+static arm_fir_instance_q15 S;
+static q15_t firState[NTAPS + BS - 1];
+
+
+
 //DMAMUX for setting timer interrupt at 48KHz
 #define DMAMUX_SIG_ID_TIM6_UP     8
 #define DMAMUX_RGxCR_GPOL_RISING DMAMUX_RGxCR_GPOL_0
@@ -62,7 +69,7 @@ extern "C" {
 extern q15_t inputSample[BLOCK_SIZE];
 extern q15_t filteredSample[BLOCK_SIZE];
 extern arm_fir_instance_q15 A;
-extern arm_biquad_casd_df1_inst_q15 armIIRInstanceQ15;
+extern arm_biquad_casd_df1_inst_q15 biq_t;
 extern uint16_t blockLen;
 extern q15_t firStateQ15[FIR_STATE_LEN];
 extern q15_t biquad_state[4];

@@ -101,11 +101,11 @@ int main(void) {
 	HAL_Init();
 
 	/* USER CODE BEGIN Init */
-	int16_t biquadCffs_q15[6] = { ema_b_coeffs[0], 0, 0, 0, ema_a_coeffs[0], 0 };
+//	int16_t biquadCffs_q15[6] = { ema_b_coeffs[0], 0, 0, 0, ema_a_coeffs[0], 0 };
 //	int16_t biquadCffs_q15[5] = { 158, 316, 158, -59227, 27099 };
 //
-	arm_biquad_cascade_df1_init_q15(&armIIRInstanceQ15, 1, biquadCffs_q15, biquad_state, 0);
-//	arm_fir_init_q15(&A, NUM_TAPS, fir_coeffs, firStateQ15,1);
+//	arm_biquad_cascade_df1_init_q15(&biq_t, 1, biquadCffs_q15, biquad_state, 0);
+	arm_fir_init_q15(&A, NUM_TAPS, fir_coeffs, firStateQ15,1);
 
 //	CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
 //	DWT->CYCCNT = 0;

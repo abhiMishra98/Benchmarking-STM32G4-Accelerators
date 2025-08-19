@@ -69,6 +69,8 @@ fprintf(fid, '#include "filter_coeffs.h"\n\n');
 fprintf(fid, "int16_t ema_b_coeffs[EMA_NUM_B_COEFFS] = { %d };\n", b_q15);
 fprintf(fid, "int16_t ema_a_coeffs[EMA_NUM_A_COEFFS] = { ");
 fprintf(fid, "%d", -a_q15(2));
+% fprintf(fid, "%d", -a_q15(2)); For IIR FMAC implementation . FMAC
+% requires the coefficients to be negated
 fprintf(fid, " };\n");
 fclose(fid);
 
@@ -98,9 +100,10 @@ measured_freq = 1000:1000:30000;
 % measured_amplitude_raw = [2.925,2.756,2.529,2.400,2.130,2.089,1.847,1.682,1.568,1.463,1.355,1.261,1.215,1.168,1.121,1.074,1.074,1.028,0.9808,0.9808,0.9808,0.9808,0.9342,0.9342,0.9342,0.9808,0.9808,0.9808,0.9808,1.028];
 % ////////////////////
 
-
+%For FMAC - IIR 
 measured_amplitude_raw = [2.963,2.917,2.861,2.701,2.597,2.438,2.348,2.285,2.211,2.120,2.020,1.924,1.780,1.826,1.739,1.736,1.697,1.652,1.592,1.541,1.544,1.552,1.540,1.549,1.549,1.549,1.549,1.549,1.642,1.638];
-
+% For CMSIS - IIR
+measured_amplitude_raw = [2.967,2.918,2.780,2.700,2.606,2.453,2.348,2.280,2.215,2.122,2.031,1.850,1.745,1.828,1.742,1.735,1.682,1.650,1.639,1.541,1.540,1.542,1.553,1.552,1.554,1.554,1.541,1.541,1.641,642];
 
 
 dc_offset      = 1.5;    % V  (what you subtract in firmware)
@@ -142,67 +145,5 @@ idx_3db = find(theo_dB <= y3db, 1, 'first');
 fc = F(idx_3db);
 xline(fc,'k:',['f_c \approx ' num2str(fc,'%.1f') ' Hz']);
 
-
-
-% %% UART: Receive 1000 samples from STM32
-% % Setup serial port (update COM port and baud rate accordingly)
-% serialPort = serialport("COM3", 115200);
-% flush(serialPort);
-% 
-% num_samples = 1000;
-% rx_data = zeros(1, num_samples);
-% 
-% disp("Waiting for sync...");
-% 
-% % Wait for 0xAAAA sync
-% while true
-%     if serialPort.NumBytesAvailable >= 2
-%         b1 = read(serialPort, 1, "uint8");
-%         b2 = read(serialPort, 1, "uint8");
-%         if b1 == 0xAA && b2 == 0xAA
-%             break;
-%         end
-%     end
-% end
-% 
-% disp("Sync found. Reading 1000 samples...");
-% 
-% % Read 2000 bytes (1000 samples)
-% data_bytes = read(serialPort, 2000, 'uint8');
-% 
-% for i = 1:num_samples
-%     byte1 = data_bytes(2*i - 1);  % MSB
-%     byte2 = data_bytes(2*i);      % LSB
-%     sample = bitor(bitshift(uint16(byte1), 8), uint16(byte2));
-% 
-%     if sample >= 2^15
-%         sample = sample - 2^16;
-%     end
-% 
-%     rx_data(i) = sample;
-% end
-% 
-% disp("Done receiving samples.");
-% disp(rx_data);
-% 
-% % Remove DC offset
-% rx_data = rx_data - mean(rx_data);
-% 
-% % FFT
-% Fs = 48000;  % Set this based on your actual sampling rate
-% N = numel(rx_data);
-% f = Fs * (0:N/2-1)/N;
-% 
-% Y = fft(rx_data);
-% Y_mag = abs(Y(1:N/2)) / N;
-% Y_mag_db = 20*log10(Y_mag + eps);  % eps to avoid log(0)
-% 
-% % Plot
-% figure;
-% plot(f, Y_mag_db, 'b', 'LineWidth', 1.5);
-% xlabel('Frequency (Hz)');
-% ylabel('Magnitude (dB)');
-% title('FFT of Received Signal');
-% grid on;
 
 
