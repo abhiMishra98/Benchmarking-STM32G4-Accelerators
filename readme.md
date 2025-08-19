@@ -72,8 +72,12 @@ The below results are for IIR EMA implementation -
 ## 📊 Filter Results
 
 ### 1. CMSIS-DSP Q15 - 
+FIR implementation - 62 taps
 ![CMSIS-DSP](images/CMSIS_FIR_Q15.png)
 
+IIR implementation 
+1) alpha = 0.7
+![CMSIS-DSP](images/CMSIS_IIR_Q15.png)
 
 ### 2. FMAC Core - 
 IIR implementation
@@ -86,6 +90,7 @@ IIR implementation
 FIR implementation
 1) Taps = 62
 ![FMAC Flow](images/FIR_FMAC_61Tap.png)
+
 
 
 
