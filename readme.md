@@ -84,8 +84,9 @@ IIR implementation
 ![FMAC Flow](images/IIR_alpha7_FMAC.png)
 
 FIR implementation
-1) Taps = 61
+1) Taps = 62
 ![FMAC Flow](images/FIR_FMAC_61Tap.png)
+
 
 
 
