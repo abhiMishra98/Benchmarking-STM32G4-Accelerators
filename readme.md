@@ -47,13 +47,37 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 
 - The filter coefficients were converted to Q15 format and were written to the STM32 Cube project with their absolute paths mentioned
 
+## 📐 IIR Filter Design
+
+- **Filter Type**: Low-pass IIR
+- **alpha**: 0.5, 0.7
+- **Cutoff Frequency**: Normalized at 0.2
+- **Coefficient Generation**: used fir1 MATLAB
+- **Format**: Converted to Q15 for fixed-point compatibility
+- Integrated into STM32CubeIDE project as `.h` and `.c` files
+
+- The filter coefficients were converted to Q15 format and were written to the STM32 Cube project with their absolute paths mentioned
+
 
 ---
 
 ## 📊 Benchmarking Results
 The below results are for IIR EMA implementation - 
 
-| Metric                  | CMSIS-DSP     | FMAC        | 
+| Metric                 | CMSIS-DSP     | FMAC        | 
+|------------------------|---------------|---------------
+| Clock Cycles           | 1779          | 159           |
+| Execution Time         | 10.46 µs      | 0.935 µs      |
+| RAM Usage              | 2.13%         | 2.08%         |
+| Flash Usage            | 3.67%         | 4.29%         |
+| CPU Load               | High          | Moderate      |
+| Power Efficiency (est) | Lowest        | Better        |
+
+> Note: Power estimation is relative, inferred from CPU usage (no power profiler used).
+
+The below results are for FIR implementation - 
+
+| Metric                 | CMSIS-DSP     | FMAC        | 
 |------------------------|---------------|---------------
 | Clock Cycles           | 1779          | 159           |
 | Execution Time         | 10.46 µs      | 0.935 µs      |
@@ -86,6 +110,7 @@ IIR implementation
 FIR implementation
 1) Taps = 62
 ![FMAC Flow](images/FIR_FMAC_61Tap.png)
+
 
 
 
