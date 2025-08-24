@@ -51,7 +51,6 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 
 - **Filter Type**: Low-pass IIR
 - **alpha**: 0.5, 0.7
-- **Cutoff Frequency**: Normalized at 0.2
 - **Coefficient Generation**: taps derived from alpha
 - **Format**: Converted to Q15 for fixed-point compatibility
 - Integrated into STM32CubeIDE project as `.h` and `.c` files
@@ -110,6 +109,7 @@ IIR implementation
 FIR implementation
 1) Taps = 62
 ![FMAC Flow](images/FIR_FMAC_61Tap.png)
+
 
 
 
