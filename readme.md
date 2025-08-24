@@ -1,10 +1,9 @@
 # Benchmarking STM32G4 Accelerators
 
-This repository presents a benchmarking study of different FIR filtering implementations using the STM32G474RE microcontroller. The goal is to evaluate performance, resource usage, and efficiency of:
+This repository presents a benchmarking study of IIR and FIR filtering implementations using the STM32G474RE microcontroller. The goal is to evaluate performance, resource usage, and efficiency of:
 
-- **CMSIS-DSP based FIR filtering**
-- **FMAC (Filter Math Accelerator) based FIR filtering**
-- **DMA Synchronisation - FMAC with DMA Integration** (primary focus)
+- **CMSIS-DSP based FIR and IIR filtering**
+- **FMAC (Filter Math Accelerator) based FIR and IIR filtering**
 
 ## 📌 Project Objective
 
@@ -17,10 +16,11 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 ---
 
 ## ⚙️ System Overview
-
-- A sine wave LUT is sampled and passed through a low-pass FIR filter.
-- The filtered output is sent to a 12-bit DAC at **48 kHz** using a timer interrupt.
-- Three implementations are compared:
+- TIM6(running at 48KHz) TRGO event triggers an ADC conversion
+- A sine signal(900mV amplitude, 1V DC Offset) is generated through function generator of the picoscope
+- The ADC HAL ConvCptCallback function gets triggered after a conversion, where the ADC samples are being read, centered, adjusted to be sent through filters(CMSIS and FMAC)
+- The filtered output is then sent to 12-bit DAC
+- Two implementations are compared:
 
 ### 1. CMSIS-DSP FIR Filter (Software-based)
 
@@ -34,13 +34,6 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 - Coefficients and inputs are loaded into FMAC's X1/X2 buffers
 - Output read from the Y buffer
 
-### 3. FMAC + DMA (Hardware + DMA)
-
-- DMA moves data from LUT to FMAC WDATA register
-- Timer TRGO triggers DMA transfers via DMAMUX
-- Output read via interrupt when FMAC’s output buffer is full
-- Minimal CPU intervention
-
 ---
 
 ## 📐 FIR Filter Design
@@ -52,19 +45,22 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 - **Format**: Converted to Q15 for fixed-point compatibility
 - Integrated into STM32CubeIDE project as `.h` and `.c` files
 
+- The filter coefficients were converted to Q15 format and were written to the STM32 Cube project with their absolute paths mentioned
+
+
 ---
 
 ## 📊 Benchmarking Results
 The below results are for IIR EMA implementation - 
 
-| Metric                  | CMSIS-DSP     | FMAC          | FMAC + DMA     |
-|------------------------|---------------|---------------|----------------|
-| Clock Cycles           | 1779          | 159           | 110–130        |
-| Execution Time         | 10.46 µs      | 0.935 µs      | 0.64–0.76 µs   |
-| RAM Usage              | 2.13%         | 2.08%         | 2.08%          |
-| Flash Usage            | 3.67%         | 4.29%         | 4.14%          |
-| CPU Load               | High          | Moderate      | Low            |
-| Power Efficiency (est) | Lowest        | Better        | Best           |
+| Metric                  | CMSIS-DSP     | FMAC        | 
+|------------------------|---------------|---------------
+| Clock Cycles           | 1779          | 159           |
+| Execution Time         | 10.46 µs      | 0.935 µs      |
+| RAM Usage              | 2.13%         | 2.08%         |
+| Flash Usage            | 3.67%         | 4.29%         |
+| CPU Load               | High          | Moderate      |
+| Power Efficiency (est) | Lowest        | Better        |
 
 > Note: Power estimation is relative, inferred from CPU usage (no power profiler used).
 
@@ -90,6 +86,7 @@ IIR implementation
 FIR implementation
 1) Taps = 62
 ![FMAC Flow](images/FIR_FMAC_61Tap.png)
+
 
 
 
