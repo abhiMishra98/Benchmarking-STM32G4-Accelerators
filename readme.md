@@ -61,10 +61,10 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 ## ✅ MATLAB Validation
 
 - Recorded amplitude for different frequency sweeps for both FIR and IIR filters
-- plotted it in MATLAB comparing it with the magnitude response of the filter to determine the correctness of CMSIS and FMAC implementation on hardware
+- Plotted it in MATLAB, comparing it with the magnitude response of the filter to determine the correctness of CMSIS and FMAC implementation on hardware
 
 ## 📊 Benchmarking Results
-The below results are for IIR EMA implementation - 
+The results below are for the IIR EMA implementation - 
 
 | Metric                 | CMSIS-DSP     | FMAC        | 
 |------------------------|---------------|---------------
@@ -77,7 +77,7 @@ The below results are for IIR EMA implementation -
 
 > Note: Power estimation is relative, inferred from CPU usage (no power profiler used).
 
-The below results are for FIR implementation - 
+The results below are for FIR implementation - 
 
 | Metric                 | CMSIS-DSP     | FMAC        | 
 |------------------------|---------------|---------------
@@ -112,6 +112,7 @@ IIR implementation
 FIR implementation
 1) Taps = 62
 ![FMAC Flow](images/FIR_FMAC_61Tap.png)
+
 
 
 
