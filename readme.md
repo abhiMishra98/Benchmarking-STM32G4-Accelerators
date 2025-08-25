@@ -24,7 +24,7 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 
 ### 1. CMSIS-DSP Filter (Software-based)
 
-- Uses `arm_fir_q15` and `arm_biquad_cascade_df1_init_q15` from ARM’s CMSIS-DSP library
+- Uses `arm_fir_q15` and `arm_biquad_cascade_df1_q15` from ARM’s CMSIS-DSP library
 - Runs entirely on CPU
 - Processes and outputs signal within the timer ISR
 
@@ -112,6 +112,7 @@ IIR implementation
 FIR implementation
 1) Taps = 62
 ![FMAC Flow](images/FIR_FMAC_61Tap.png)
+
 
 
 
