@@ -8,10 +8,6 @@
 #include "filter_coeffs.h"
 #include "fmac_cmsis_interface.h"
 
-/** Generated using Dr LUT - Free Lookup Table Generator
- * https://github.com/ppelikan/drlut
- **/
-// Formula: sin(2*pi*t/T)
 uint32_t dac_dma_buffer[DAC_DMA_BUF_LEN];
 uint8_t dac_dma_index = 0;
 int16_t lut[256] = { 0, 804, 1608, 2410, 3212, 4011, 4808, 5602, 6393, 7179,
@@ -42,17 +38,31 @@ int16_t lut[256] = { 0, 804, 1608, 2410, 3212, 4011, 4808, 5602, 6393, 7179,
 		-11039, -10278, -9512, -8739, -7962, -7179, -6393, -5602, -4808, -4011,
 		-3212, -2410, -1608, -804 };
 
-int16_t lut50[50] = { 0, 4107, 8149, 12062, 15786, 19260, 22431, 25247, 27666,
-		29648, 31163, 32187, 32702, 32702, 32187, 31163, 29648, 27666, 25247,
-		22431, 19260, 15786, 12062, 8149, 4107, 0, -4107, -8149, -12062, -15786,
-		-19260, -22431, -25247, -27666, -29648, -31163, -32187, -32702, -32702,
-		-32187, -31163, -29648, -27666, -25247, -22431, -19260, -15786, -12062,
-		-8149, -4107 };
 
-void cmsis_fir_q15_init(arm_fir_instance_q15 *S, uint16_t numTaps,
-		const q15_t *pCoeffs, q15_t *pState, uint32_t blockSize) {
-	arm_fir_init_q15(S, numTaps, pCoeffs, pState, blockSize);
-}
+/**
+ * @brief Configure FMAC peripheral filter settings.
+ *
+ * @param sFmacConfig       Pointer to FMAC filter configuration structure.
+ * @param ipBaseAddr        Base address of input buffer.
+ * @param ipBufferSize      Input buffer size.
+ * @param ipThreshold       Input threshold (number of samples before processing starts).
+ * @param coeffBaseAddress  Base address of coefficient buffer.
+ * @param CoeffBufferSize   Size of coefficient buffer.
+ * @param opBaseAddress     Base address of output buffer.
+ * @param opBufferSize      Output buffer size.
+ * @param opThreshold       Output threshold (number of samples before interrupt/DMA).
+ * @param pCoeffA           Pointer to A coefficients (IIR only, NULL for FIR).
+ * @param coeffASize        Number of A coefficients.
+ * @param pCoeffB           Pointer to B coefficients.
+ * @param coeffBSize        Number of B coefficients.
+ * @param ipAccess          Input transfer mode (CPU/DMA).
+ * @param opAccess          Output transfer mode (CPU/DMA).
+ * @param clip              Enable/disable clipping at ±32767.
+ * @param filter            Filter type (FIR/IIR).
+ * @param P                 Number of taps (FIR).
+ * @param Q                 Not used for FIR (used in IIR).
+ * @param R                 Post-shift value (used in IIR, gain for FIR).
+ */
 
 void fmac_config(FMAC_FilterConfigTypeDef *sFmacConfig, uint8_t ipBaseAddr,
 		uint8_t ipBufferSize, uint32_t ipThreshold, uint8_t coeffBaseAddress,
@@ -99,6 +109,14 @@ void fmac_config(FMAC_FilterConfigTypeDef *sFmacConfig, uint8_t ipBaseAddr,
 	sFmacConfig->R = R; //Gain[FIR]
 }
 
+/**
+ * @brief Start FMAC filter processing with TIM6 interrupts and DAC (polling mode).
+ *
+ * @param hfmac      FMAC handle.
+ * @param sFmacConfig FMAC filter configuration structure.
+ * @param htim6      Timer handle used for periodic sampling.
+ * @param hdac1      DAC handle for output signal.
+ */
 void fmac_StartWithTimerIRQ(FMAC_HandleTypeDef *hfmac,
 		FMAC_FilterConfigTypeDef *sFmacConfig, TIM_HandleTypeDef *htim6,
 		DAC_HandleTypeDef *hdac1) {
@@ -106,11 +124,8 @@ void fmac_StartWithTimerIRQ(FMAC_HandleTypeDef *hfmac,
 	if (HAL_FMAC_FilterConfig(hfmac, sFmacConfig) != HAL_OK)
 		/* Configuration Error */
 		Error_Handler();
-//	HAL_FMAC_FilterPreload(hfmac, &lut50[0], 1, NULL, 1); //Comment if using FMAC with DMA
-
 	HAL_StatusTypeDef startStatus;
 	startStatus = HAL_FMAC_FilterStart(hfmac, NULL, 100);
-	//__HAL_FMAC_ENABLE_IT(hfmac, FMAC_SR_YEMPTY); //Added for setting output to DAC once available
 	if (startStatus == HAL_OK) {
 
 		HAL_DAC_Start(hdac1, DAC_CHANNEL_1);
@@ -121,32 +136,22 @@ void fmac_StartWithTimerIRQ(FMAC_HandleTypeDef *hfmac,
 
 	}
 }
+
+/**
+ * @brief Start FMAC filter with TIM6 + DMA to DAC (DMA-driven output).
+ *
+ * @param hfmac       FMAC handle.
+ * @param sFmacConfig FMAC filter configuration.
+ * @param htim6       Timer handle for periodic trigger.
+ * @param hdac1       DAC handle for DMA transfer.
+ */
 void fmac_StartWithTimerIRQ_DMA(FMAC_HandleTypeDef *hfmac,
 		FMAC_FilterConfigTypeDef *sFmacConfig, TIM_HandleTypeDef *htim6,
 		DAC_HandleTypeDef *hdac1) {
 
-	//	/* Configure the FMAC */
 	HAL_StatusTypeDef startStatusFMAC = HAL_FMAC_FilterConfig(hfmac, sFmacConfig);
 	if (startStatusFMAC != HAL_OK)
-		/* Configuration Error */
 		Error_Handler();
-
-//	HAL_FMAC_FilterPreload_DMA(&hfmac, &lut[0], 21, NULL, 0); // Preload with initial data (past samples)
-
-	uint16_t lutSize = 256;  // number of samples to send
-
-	if (HAL_FMAC_AppendFilterData(&hfmac, lut, &lutSize) != HAL_OK) {
-		Error_Handler();
-	}
-
-	uint16_t outputLen = lutSize;  // same size as input
-//	if (HAL_FMAC_FilterStart(&hfmac, dac_dma_buffer, &outputLen) != HAL_OK) {
-//		Error_Handler();
-//	}
-
-	//HAL_FMAC_FilterPreload_DMA(&hfmac, lut, 1, NULL, 0);
-
-	//HAL_FMAC_FilterPreload(hfmac, &lut[0], 1, NULL, 0);
 	HAL_StatusTypeDef startStatus;
 	startStatus = HAL_FMAC_FilterStart(hfmac, NULL, 100);
 	if (startStatus == HAL_OK) {
@@ -167,6 +172,14 @@ void fmac_StartWithTimerIRQ_DMA(FMAC_HandleTypeDef *hfmac,
 //	DAC_ALIGN_12B_R);
 //	HAL_TIM_Base_Start_IT(htim6);
 }
+
+/**
+ * @brief Timer ISR helper: Poll FMAC result and write to DAC (CPU-driven).
+ *
+ * @param hfmac     FMAC handle.
+ * @param hdac1     DAC handle.
+ * @param lutIndex  Pointer to LUT index for feeding sine samples.
+ */
 void fmac_FilterSetDAC_TimerISR(FMAC_HandleTypeDef *hfmac,
 		DAC_HandleTypeDef *hdac1, uint8_t *lutIndex) {
 	//	For FMAC implementation [polling]
@@ -179,6 +192,16 @@ void fmac_FilterSetDAC_TimerISR(FMAC_HandleTypeDef *hfmac,
 		hfmac->Instance->WDATA = lut[(*lutIndex)++];
 	}
 }
+
+/**
+ * @brief Timer ISR helper: Collect FMAC output and store in DMA buffer.
+ *
+ * @param hfmac     FMAC handle.
+ * @param hdac1     DAC handle.
+ * @param lutIndex  Pointer to LUT index for feeding sine samples.
+ *
+ * @note Stores output in dac_dma_buffer for DMA-driven DAC updates.
+ */
 void fmac_FilterSetDAC_TimerISR_DMA(FMAC_HandleTypeDef *hfmac,
 		DAC_HandleTypeDef *hdac1, uint8_t *lutIndex) {
 	if (__HAL_FMAC_GET_FLAG(hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
@@ -193,11 +216,25 @@ void fmac_FilterSetDAC_TimerISR_DMA(FMAC_HandleTypeDef *hfmac,
 
 }
 
+
+/**
+ * @brief Initialize and link a DMA channel for FMAC preload operations.
+ *
+ * @param DMAInstance           Pointer to DMA handle structure.
+ * @param hfmac                 Pointer to FMAC handle structure.
+ * @param Request               DMA request type.
+ * @param Direction             Transfer direction (e.g., memory-to-periph).
+ * @param PeriphInc             Peripheral increment mode.
+ * @param MemInc                Memory increment mode.
+ * @param PeriphDataAlignment   Peripheral data alignment (byte, half-word, word).
+ * @param MemDataAlignment      Memory data alignment.
+ * @param Mode                  DMA mode (normal/circular).
+ * @param Priority              DMA priority level.
+ */
 void DMA_Init(DMA_HandleTypeDef *DMAInstance, FMAC_HandleTypeDef *hfmac,
 		uint32_t Request, uint32_t Direction, uint32_t PeriphInc,
 		uint32_t MemInc, uint32_t PeriphDataAlignment,
 		uint32_t MemDataAlignment, uint32_t Mode, uint32_t Priority) {
-	/* Preload channel initialisation */
 	DMAInstance->Instance = DMA1_Channel1;
 	DMAInstance->Init.Request = Request;
 	DMAInstance->Init.Direction = Direction;
@@ -211,5 +248,4 @@ void DMA_Init(DMA_HandleTypeDef *DMAInstance, FMAC_HandleTypeDef *hfmac,
 		Error_Handler();
 	/* Connect the DMA channel to the FMAC handle */
 	__HAL_LINKDMA(hfmac, hdmaPreload, *DMAInstance);
-
 }

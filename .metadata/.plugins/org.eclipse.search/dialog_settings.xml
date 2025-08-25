@@ -20,12 +20,12 @@
 		<item key="WHOLE_WORD" value="false"/>
 		<item key="SEARCH_DERIVED" value="false"/>
 		<item key="SEARCH_IN_BINARIES" value="false"/>
-		<item key="HISTORY_SIZE" value="8"/>
+		<item key="HISTORY_SIZE" value="12"/>
 		<section name="HISTORY0">
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="DMAMUX_SIG_ID_TIM6_UP"/>
+			<item key="textPattern" value="fmac_FilterSetDAC_TimerISR_DMA"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -42,7 +42,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FMAC_SR_YEMPTY"/>
+			<item key="textPattern" value="dac_dma_buffer"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -55,7 +55,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FMAC_IRQHandler"/>
+			<item key="textPattern" value="buf"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -68,11 +68,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FMAC_DMAOutputDataReady"/>
+			<item key="textPattern" value="fmac_cycles"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.c"/>
 				<item value="*.h"/>
+				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -81,7 +81,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="hdma_fmac_read"/>
+			<item key="textPattern" value="cycleCounter"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -94,10 +94,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="fir_coeffs"/>
-			<item key="scope" value="3"/>
+			<item key="textPattern" value="fmac_done"/>
+			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
+				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -106,10 +107,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="filter_coeffs"/>
-			<item key="scope" value="3"/>
+			<item key="textPattern" value="fmac_result_cycles"/>
+			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
+				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -118,10 +120,63 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="#include &quot;arm_fir_init_q15.c&quot;"/>
-			<item key="scope" value="3"/>
+			<item key="textPattern" value="globalArray"/>
+			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
+				<item value="*.c"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY8">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="buffer_ready"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*.c"/>
+				<item value="*.h"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY9">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="DMAMUX_SIG_ID_TIM6_UP"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*.h"/>
+				<item value="*.c"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY10">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="FMAC_SR_YEMPTY"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*.h"/>
+				<item value="*.c"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY11">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="FMAC_IRQHandler"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*.h"/>
+				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
 			</list>

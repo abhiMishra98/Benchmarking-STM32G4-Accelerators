@@ -57,17 +57,17 @@ extern "C" {
 #define DMAMUX_RGxCR_GPOL_RISING DMAMUX_RGxCR_GPOL_0
 
 //Enabling interrupt when FMAC o/p data is present
-#define FMAC_IT_YEMPTY  ((uint32_t)(0x1U << 0))  // Same bit as FMAC_SR_YEMPTY
+#define FMAC_IT_YEMPTY  ((uint32_t)(0x1U << 0))  	   // Same bit as FMAC_SR_YEMPTY
 
-extern q15_t inputSample[BLOCK_SIZE];
-extern q15_t filteredSample[BLOCK_SIZE];
-extern arm_fir_instance_q15 A;
-extern arm_biquad_casd_df1_inst_q15 armIIRInstanceQ15;
-extern uint16_t blockLen;
-extern q15_t firStateQ15[FIR_STATE_LEN];
-extern q15_t biquad_state[4];
-extern DMA_HandleTypeDef hdma_fmac_read;
-extern DMA_HandleTypeDef hdma_fmac_write;
+extern q15_t inputSample[BLOCK_SIZE];				   //Used to store the input sample
+extern q15_t filteredSample[BLOCK_SIZE];			   //Stores the filtered sample
+extern arm_fir_instance_q15 A; 						   //CMSIS-FIR instance
+extern arm_biquad_casd_df1_inst_q15 armIIRInstanceQ15; //CMSIS-IIR Instance
+extern uint16_t blockLen; 							   //Number of samples to be processed
+extern q15_t firStateQ15[FIR_STATE_LEN];			   //storing the results in an intermediate stage
+extern q15_t biquad_state[4];						   //storing the results in an intermediate stage
+extern DMA_HandleTypeDef hdma_fmac_read;			   //DMA channel to read from FMAC RDATA register
+extern DMA_HandleTypeDef hdma_fmac_write;			   //DMA channel to write to FMAC WDATA register
 
 extern UART_HandleTypeDef hlpuart1;
 extern ADC_HandleTypeDef hadc1;

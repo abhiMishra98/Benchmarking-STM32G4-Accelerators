@@ -101,15 +101,17 @@ int main(void) {
 	HAL_Init();
 
 	/* USER CODE BEGIN Init */
-	int16_t biquadCffs_q15[6] = { ema_b_coeffs[0], 0, 0, 0, ema_a_coeffs[0], 0 };
-//	int16_t biquadCffs_q15[5] = { 158, 316, 158, -59227, 27099 };
-//
-	arm_biquad_cascade_df1_init_q15(&armIIRInstanceQ15, 1, biquadCffs_q15, biquad_state, 0);
-//	arm_fir_init_q15(&A, NUM_TAPS, fir_coeffs, firStateQ15,1);
+	//  For CMSIS-IIR
+	//	int16_t biquadCffs_q15[6] = { ema_b_coeffs[0], 0, 0, 0, ema_a_coeffs[0], 0 };
+	//	arm_biquad_cascade_df1_init_q15(&armIIRInstanceQ15, 1, biquadCffs_q15, biquad_state, 0);
 
-//	CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-//	DWT->CYCCNT = 0;
-//	DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+	//  For CMSIS-FIR
+	//  arm_fir_init_q15(&A, NUM_TAPS, fir_coeffs, firStateQ15,1);
+
+	//  DWT Cycle Counter - Init
+	//	CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+	//	DWT->CYCCNT = 0;
+	//	DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 
 	/* USER CODE END Init */
 
@@ -132,42 +134,44 @@ int main(void) {
 	/* declare a filter configuration structure */
 
 	FMAC_FilterConfigTypeDef sFmacConfig;
-//	FIR Filters
-//	fmac_config(&sFmacConfig, 64, 80, 1, 0, 61, 144, 80, 1, NULL, 0,
-//			fir_coeffs, 61, FMAC_BUFFER_ACCESS_POLLING,
-//			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
-//			61, 0, 0);
-//IIR Filters
-//	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, ema_a_coeffs,
-//	EMA_NUM_A_COEFFS, ema_b_coeffs, EMA_NUM_B_COEFFS,
-//	FMAC_BUFFER_ACCESS_POLLING,
-//	FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED,
-//	FMAC_FUNC_IIR_DIRECT_FORM_1,
-//	EMA_NUM_B_COEFFS, EMA_NUM_A_COEFFS, 0);
-//			char buffer[128] = { 0 };
-//			sprintf(buffer + strlen(buffer), "%s", "Hello");
-//			HAL_UART_Transmit(&hlpuart1, buffer, strlen(buffer), 1);
-//FIR DMA Filter config
-//	HAL_DMA_Init(&hdma_fmac_read);
-//	HAL_DMA_Init(&hdma_fmac_write);
-//	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, ema_a_coeffs,
-//		EMA_NUM_A_COEFFS, ema_b_coeffs, EMA_NUM_B_COEFFS,
-//		FMAC_BUFFER_ACCESS_DMA,
-//		FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED,
-//		FMAC_FUNC_IIR_DIRECT_FORM_1,
-//		EMA_NUM_B_COEFFS, EMA_NUM_A_COEFFS, 0);
-//
-//	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, NULL, 0,
-//			fir_coeffs, 21, FMAC_BUFFER_ACCESS_DMA,
-//			FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
-//			21, 0, 0);
-//	/* Configure the FMAC */
-//	fmac_StartWithTimerIRQ(&hfmac, &sFmacConfig, &htim6, &hdac1);
-//	fmac_StartWithTimerIRQ_DMA(&hfmac, &sFmacConfig, &htim6, &hdac1);
+
+	//  FMAC-FIR Filters
+	//	fmac_config(&sFmacConfig, 64, 80, 1, 0, 61, 144, 80, 1, NULL, 0,
+	//	fir_coeffs, 61, FMAC_BUFFER_ACCESS_POLLING,
+	//	FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
+	//	61, 0, 0);
+
+	//  FMAC-IIR Filters
+	//	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, ema_a_coeffs,
+	//	EMA_NUM_A_COEFFS, ema_b_coeffs, EMA_NUM_B_COEFFS,
+	//	FMAC_BUFFER_ACCESS_POLLING,
+	//	FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED,
+	//	FMAC_FUNC_IIR_DIRECT_FORM_1,
+	//	EMA_NUM_B_COEFFS, EMA_NUM_A_COEFFS, 0);
+
+	//  FMAC-IIR DMA Filter config
+	//	HAL_DMA_Init(&hdma_fmac_read);
+	//	HAL_DMA_Init(&hdma_fmac_write);
+	//	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, ema_a_coeffs,
+	//	EMA_NUM_A_COEFFS, ema_b_coeffs, EMA_NUM_B_COEFFS,
+	//	FMAC_BUFFER_ACCESS_DMA,
+	//	FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED,
+	//	FMAC_FUNC_IIR_DIRECT_FORM_1,
+	//	EMA_NUM_B_COEFFS, EMA_NUM_A_COEFFS, 0);
+
+	//  FMAC-FIR DMA Filter Config
+	//	HAL_DMA_Init(&hdma_fmac_read);
+	//	HAL_DMA_Init(&hdma_fmac_write);
+	//	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, NULL, 0,
+	//	fir_coeffs, 21, FMAC_BUFFER_ACCESS_DMA,
+	//	FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
+	//	21, 0, 0);
+
+	/* Configure the FMAC */
+	fmac_StartWithTimerIRQ(&hfmac, &sFmacConfig, &htim6, &hdac1);
+//	fmac_StartWithTimerIRQ_DMA(&hfmac, &sFmacConfig, &htim6, &hdac1); //For DMA Config.
 	HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
 	HAL_ADC_Start_IT(&hadc1);
-	HAL_TIM_Base_Start(&htim6);
-	HAL_TIM_Base_Start_IT(&htim6);
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -436,6 +440,8 @@ static void MX_TIM6_Init(void) {
 		Error_Handler();
 	}
 	/* USER CODE BEGIN TIM6_Init 2 */
+
+	//Configuring TIM6 to trigger TRGO events
 	htim6.Instance->CR2 &= ~TIM_CR2_MMS;
 	htim6.Instance->CR2 |= TIM_TRGO_UPDATE;
 	/* USER CODE END TIM6_Init 2 */
@@ -511,15 +517,23 @@ static void MX_GPIO_Init(void) {
 }
 
 /* USER CODE BEGIN 4 */
+
+/**
+ * @brief FMAC Output Ready Callback
+ * @param hfmac: Pointer to FMAC handle
+ *
+ * This callback is triggered when FMAC output data is ready.
+ * It reads the Q15 filtered result from RDATA, scales it to 12-bit,
+ * and updates the DAC output.
+ */
 void HAL_FMAC_OutputDataReadyCallback(FMAC_HandleTypeDef *hfmac) {
 	if (__HAL_FMAC_GET_FLAG(hfmac, FMAC_FLAG_YEMPTY) == RESET) // Y buffer has value
 			{
 		int16_t result = hfmac->Instance->RDATA;  // Get filtered Q15 sample
-		// Scale to 12-bit (0–4095), assuming Q15 input range
+		// Scale to 12-bit (0–4095)
 		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4);
-//		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R,  dacVal);
 		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
-		}
+	}
 }
 /* USER CODE END 4 */
 

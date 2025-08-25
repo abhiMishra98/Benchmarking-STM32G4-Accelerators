@@ -13,5 +13,5 @@
 ../Core/Src/stm32g4xx_it.c:246:6:ADC1_2_IRQHandler	8	static
 ../Core/Src/stm32g4xx_it.c:259:6:EXTI15_10_IRQHandler	8	static
 ../Core/Src/stm32g4xx_it.c:272:6:TIM6_DAC_IRQHandler	8	static
-../Core/Src/stm32g4xx_it.c:339:6:HAL_ADC_ConvCpltCallback	48	static
-../Core/Src/stm32g4xx_it.c:390:6:FMAC_IRQHandler	8	static
+../Core/Src/stm32g4xx_it.c:283:6:HAL_ADC_ConvCpltCallback	48	static
+../Core/Src/stm32g4xx_it.c:335:6:FMAC_IRQHandler	8	static

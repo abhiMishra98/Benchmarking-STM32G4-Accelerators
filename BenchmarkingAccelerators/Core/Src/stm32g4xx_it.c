@@ -271,63 +271,7 @@ void EXTI15_10_IRQHandler(void) {
  */
 void TIM6_DAC_IRQHandler(void) {
 	/* USER CODE BEGIN TIM6_DAC_IRQn 0 */
-	static uint8_t lutIndex = 0;
-	int16_t result;
-//	static uint8_t i = 0;
 
-//	HAL_ADC_Start(&hadc1);  // Start conversion
-//	HAL_ADC_PollForConversion(&hadc1, 10); // Wait for conversion to complete
-//	uint32_t adc_value = HAL_ADC_GetValue(&hadc1);  // Read value
-//	int16_t fmac_input = ((int32_t) adc_value - 2048) << 4;
-
-//	For FMAC
-//	implementation[polling]
-//	lutIndex = lutIndex + 70;
-//	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
-//		result = hfmac.Instance->RDATA;
-//		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4); // scale to 12-bit to feed into our 12-bit DAC
-//		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
-//	}
-//	if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
-////		int16_t fmac_input = ((int32_t) lut[lutIndex] - 2048) << 4;
-//		hfmac.Instance->WDATA = lut[lutIndex];;
-//	}
-//	fmac_FilterSetDAC_TimerISR(&hfmac, &hdac1, &lutIndex);
-//	fmac_FilterSetDAC_TimerISR_DMA(&hfmac, &hdac1, &lutIndex);
-
-//For IIR EMA LP Implementation
-//	static int16_t y_prev;
-//	int32_t acc = 0;
-//	lutIndex = lutIndex + 32;
-//	acc = ((int32_t) ema_b_coeffs[0] * lut[lutIndex])
-//			- ((int32_t) ema_a_coeffs[1] * y_prev);
-//	acc = acc >> 15;  // Q15 normalization
-//	if (acc > 32767)
-//		acc = 32767;
-//	if (acc < -32768)
-//		acc = -32768;
-//
-//	y_prev = (int16_t) acc;
-//	uint32_t dac_val = (uint32_t) (((int32_t) y_prev + 32768) >> 4); //Scale to 0–4095
-
-//For FIR Implementation
-//	lutIndex = lutIndex + 1;
-//	arm_fir_q15(&A, fmac_input, filteredSample, BLOCK_SIZE);
-//	q15_t q15_val = filteredSample[0];
-////	int16_t q15_val = lut[lutIndex];
-//	uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); //Scale to 0–4095
-////	uint32_t dac_val = (uint32_t) (((int32_t) fmac_input) >> 4); //Scale to 0–4095
-//	HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val);
-
-	if (lutIndex >= 256) {
-
-//		uint32_t end = DWT->CYCCNT;
-//		uint32_t cycles = end - start;
-//		char buffer[128] = { 0 };
-//		sprintf(buffer + strlen(buffer), "Cycles = %ld\n", cycles);
-//		HAL_UART_Transmit(&hlpuart1, buffer, strlen(buffer), 1);
-		lutIndex = 0;
-	}
 	/* USER CODE END TIM6_DAC_IRQn 0 */
 	HAL_TIM_IRQHandler(&htim6);
 	HAL_DAC_IRQHandler(&hdac1);
@@ -365,9 +309,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 //		uint32_t dacVal = (uint32_t) (((int32_t) q15_val + 32768) >> 4);  //For FIR
 		uint32_t dac_val = (uint32_t) (((int32_t) q15_val + 32768) >> 4); //For IIR
 		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val);
-
-
-
 
 		//FMAC-FIR & IIR implementation
 //		if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_YEMPTY) == RESET) {

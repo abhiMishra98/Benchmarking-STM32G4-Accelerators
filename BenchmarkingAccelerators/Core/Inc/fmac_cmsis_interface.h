@@ -8,8 +8,8 @@
 #ifndef INC_FMAC_CMSIS_INTERFACE_H_
 #define INC_FMAC_CMSIS_INTERFACE_H_
 
-//extern int16_t lut[256];
-extern int16_t lut50[50];
+extern int16_t lut[256];
+
 
 void cmsis_fir_q15_init(arm_fir_instance_q15 *S, uint16_t numTaps,
 		const q15_t *pCoeffs, q15_t *pState, uint32_t blockSize);
@@ -39,9 +39,9 @@ void fmac_FilterSetDAC_TimerISR(FMAC_HandleTypeDef *hfmac,
 void fmac_FilterSetDAC_TimerISR_DMA(FMAC_HandleTypeDef *hfmac,
 		DAC_HandleTypeDef *hdac1, uint8_t *lutIndex);
 
-//void DMA_Init(DMA_HandleTypeDef *DMAInstance, FMAC_HandleTypeDef *hfmac,
-//		uint32_t Request, uint32_t Direction, uint32_t PeriphInc,
-//		uint32_t MemInc, uint32_t PeriphDataAlignment,
-//		uint32_t MemDataAlignment, uint32_t Mode, uint32_t Priority);
+void DMA_Init(DMA_HandleTypeDef *DMAInstance, FMAC_HandleTypeDef *hfmac,
+		uint32_t Request, uint32_t Direction, uint32_t PeriphInc,
+		uint32_t MemInc, uint32_t PeriphDataAlignment,
+		uint32_t MemDataAlignment, uint32_t Mode, uint32_t Priority);
 
 #endif /* INC_FMAC_CMSIS_INTERFACE_H_ */

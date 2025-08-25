@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="MX_DMA_Init"/>
+		<item key="selection" value="fmac_FilterSetDAC_TimerISR_DMA"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="fmac_FilterSetDAC_TimerISR_DMA"/>
 			<item value="FMAC_WRITE"/>
 			<item value="HAL_FMAC_OutputDataReadyCallback"/>
 			<item value="ADC_Start"/>
@@ -22,7 +23,6 @@
 			<item value="__HAL_FMAC_GET_FLAG"/>
 			<item value="FMAC"/>
 			<item value="HAL_DAC_Start"/>
-			<item value="IT"/>
 		</list>
 		<list key="replacehistory">
 		</list>
