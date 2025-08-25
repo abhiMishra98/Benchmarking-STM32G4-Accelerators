@@ -80,8 +80,8 @@ The below results are for FIR implementation -
 |------------------------|---------------|---------------
 | Clock Cycles           | 2500          | 340           |
 | Execution Time         | 14.7 µs       | 2 µs          |
-| RAM Usage              | 2.13%         | 2.08%         |
-| Flash Usage            | 3.67%         | 4.29%         |
+| RAM Usage              | 2.67%         | 2.15%         |
+| Flash Usage            | 4.00%         | 4.3%         |
 | CPU Load               | High          | Moderate      |
 | Power Efficiency (est) | Lowest        | Better        |
 
@@ -109,6 +109,7 @@ IIR implementation
 FIR implementation
 1) Taps = 62
 ![FMAC Flow](images/FIR_FMAC_61Tap.png)
+
 
 
 
