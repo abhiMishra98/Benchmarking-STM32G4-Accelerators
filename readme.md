@@ -22,13 +22,13 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 - The filtered output is then sent to 12-bit DAC
 - Two implementations are compared:
 
-### 1. CMSIS-DSP FIR Filter (Software-based)
+### 1. CMSIS-DSP Filter (Software-based)
 
 - Uses `arm_fir_q15` from ARM’s CMSIS-DSP library
 - Runs entirely on CPU
 - Processes and outputs signal within the timer ISR
 
-### 2. FMAC-based FIR Filter (Hardware Accelerator)
+### 2. FMAC-based Filter (Hardware Accelerator)
 
 - Utilizes STM32G4's built-in FMAC peripheral
 - Coefficients and inputs are loaded into FMAC's X1/X2 buffers
@@ -109,6 +109,7 @@ IIR implementation
 FIR implementation
 1) Taps = 62
 ![FMAC Flow](images/FIR_FMAC_61Tap.png)
+
 
 
 
