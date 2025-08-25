@@ -58,7 +58,10 @@ To implement and benchmark real-time signal processing methods on the STM32G4 se
 - The filter coefficients were converted to Q15 format and were written to the STM32 Cube project with their absolute paths mentioned
 
 
----
+## ✅ MATLAB Validation
+
+- Recorded amplitude for different frequency sweeps for both FIR and IIR filters
+- plotted it in MATLAB comparing it with the magnitude response of the filter to determine the correctness of CMSIS and FMAC implementation on hardware
 
 ## 📊 Benchmarking Results
 The below results are for IIR EMA implementation - 
@@ -109,6 +112,7 @@ IIR implementation
 FIR implementation
 1) Taps = 62
 ![FMAC Flow](images/FIR_FMAC_61Tap.png)
+
 
 
 
