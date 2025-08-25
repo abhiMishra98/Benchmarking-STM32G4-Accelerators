@@ -138,6 +138,42 @@ void fmac_StartWithTimerIRQ(FMAC_HandleTypeDef *hfmac,
 }
 
 /**
+ * @brief Start FMAC filter with TIM6 + DMA to DAC (DMA-driven output).
+ *
+ * @param hfmac       FMAC handle.
+ * @param sFmacConfig FMAC filter configuration.
+ * @param htim6       Timer handle for periodic trigger.
+ * @param hdac1       DAC handle for DMA transfer.
+ */
+void fmac_StartWithTimerIRQ_DMA(FMAC_HandleTypeDef *hfmac,
+		FMAC_FilterConfigTypeDef *sFmacConfig, TIM_HandleTypeDef *htim6,
+		DAC_HandleTypeDef *hdac1) {
+
+	HAL_StatusTypeDef startStatusFMAC = HAL_FMAC_FilterConfig(hfmac, sFmacConfig);
+	if (startStatusFMAC != HAL_OK)
+		Error_Handler();
+	HAL_StatusTypeDef startStatus;
+	startStatus = HAL_FMAC_FilterStart(hfmac, NULL, 100);
+	if (startStatus == HAL_OK) {
+		HAL_DAC_Start_DMA(hdac1, DAC_CHANNEL_1, dac_dma_buffer, DAC_DMA_BUF_LEN,
+				DAC_ALIGN_12B_R);
+		HAL_TIM_Base_Start_IT(htim6);
+	} else {
+
+	}
+
+	HAL_StatusTypeDef status = HAL_DMA_Start_IT(&hdma_fmac_read,
+			(uint32_t) &FMAC->RDATA, (uint32_t) dac_dma_buffer,
+			DAC_DMA_BUF_LEN);
+	if (status != HAL_OK) {
+		Error_Handler();
+	}
+//	HAL_DAC_Start_DMA(hdac1, DAC_CHANNEL_1, dac_dma_buffer, DAC_DMA_BUF_LEN,
+//	DAC_ALIGN_12B_R);
+//	HAL_TIM_Base_Start_IT(htim6);
+}
+
+/**
  * @brief Timer ISR helper: Poll FMAC result and write to DAC (CPU-driven).
  *
  * @param hfmac     FMAC handle.
@@ -155,4 +191,61 @@ void fmac_FilterSetDAC_TimerISR(FMAC_HandleTypeDef *hfmac,
 	if (__HAL_FMAC_GET_FLAG(hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
 		hfmac->Instance->WDATA = lut[(*lutIndex)++];
 	}
+}
+
+/**
+ * @brief Timer ISR helper: Collect FMAC output and store in DMA buffer.
+ *
+ * @param hfmac     FMAC handle.
+ * @param hdac1     DAC handle.
+ * @param lutIndex  Pointer to LUT index for feeding sine samples.
+ *
+ * @note Stores output in dac_dma_buffer for DMA-driven DAC updates.
+ */
+void fmac_FilterSetDAC_TimerISR_DMA(FMAC_HandleTypeDef *hfmac,
+		DAC_HandleTypeDef *hdac1, uint8_t *lutIndex) {
+	if (__HAL_FMAC_GET_FLAG(hfmac, FMAC_FLAG_YEMPTY) != FMAC_FLAG_YEMPTY) {
+		int16_t result = hfmac->Instance->RDATA;
+		// Usage in ISR or function:
+		dac_dma_buffer[dac_dma_index++] = (uint32_t) (((int32_t) result + 32768)
+				>> 4);
+	}
+	if (__HAL_FMAC_GET_FLAG(hfmac, FMAC_FLAG_X1FULL) != FMAC_FLAG_X1FULL) {
+		hfmac->Instance->WDATA = lut[(*lutIndex)++];
+	}
+
+}
+
+
+/**
+ * @brief Initialize and link a DMA channel for FMAC preload operations.
+ *
+ * @param DMAInstance           Pointer to DMA handle structure.
+ * @param hfmac                 Pointer to FMAC handle structure.
+ * @param Request               DMA request type.
+ * @param Direction             Transfer direction (e.g., memory-to-periph).
+ * @param PeriphInc             Peripheral increment mode.
+ * @param MemInc                Memory increment mode.
+ * @param PeriphDataAlignment   Peripheral data alignment (byte, half-word, word).
+ * @param MemDataAlignment      Memory data alignment.
+ * @param Mode                  DMA mode (normal/circular).
+ * @param Priority              DMA priority level.
+ */
+void DMA_Init(DMA_HandleTypeDef *DMAInstance, FMAC_HandleTypeDef *hfmac,
+		uint32_t Request, uint32_t Direction, uint32_t PeriphInc,
+		uint32_t MemInc, uint32_t PeriphDataAlignment,
+		uint32_t MemDataAlignment, uint32_t Mode, uint32_t Priority) {
+	DMAInstance->Instance = DMA1_Channel1;
+	DMAInstance->Init.Request = Request;
+	DMAInstance->Init.Direction = Direction;
+	DMAInstance->Init.PeriphInc = PeriphInc;
+	DMAInstance->Init.MemInc = MemInc;
+	DMAInstance->Init.PeriphDataAlignment = PeriphDataAlignment;
+	DMAInstance->Init.MemDataAlignment = MemDataAlignment;
+	DMAInstance->Init.Mode = Mode;
+	DMAInstance->Init.Priority = Priority;
+	if (HAL_DMA_Init(DMAInstance) != HAL_OK)
+		Error_Handler();
+	/* Connect the DMA channel to the FMAC handle */
+	__HAL_LINKDMA(hfmac, hdmaPreload, *DMAInstance);
 }

@@ -149,24 +149,6 @@ int main(void) {
 	//	FMAC_FUNC_IIR_DIRECT_FORM_1,
 	//	EMA_NUM_B_COEFFS, EMA_NUM_A_COEFFS, 0);
 
-	//  FMAC-IIR DMA Filter config
-	//	HAL_DMA_Init(&hdma_fmac_read);
-	//	HAL_DMA_Init(&hdma_fmac_write);
-	//	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, ema_a_coeffs,
-	//	EMA_NUM_A_COEFFS, ema_b_coeffs, EMA_NUM_B_COEFFS,
-	//	FMAC_BUFFER_ACCESS_DMA,
-	//	FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED,
-	//	FMAC_FUNC_IIR_DIRECT_FORM_1,
-	//	EMA_NUM_B_COEFFS, EMA_NUM_A_COEFFS, 0);
-
-	//  FMAC-FIR DMA Filter Config
-	//	HAL_DMA_Init(&hdma_fmac_read);
-	//	HAL_DMA_Init(&hdma_fmac_write);
-	//	fmac_config(&sFmacConfig, 51, 100, 1, 0, 21, 151, 100, 1, NULL, 0,
-	//	fir_coeffs, 21, FMAC_BUFFER_ACCESS_DMA,
-	//	FMAC_BUFFER_ACCESS_POLLING, FMAC_CLIP_ENABLED, FMAC_FUNC_CONVO_FIR,
-	//	21, 0, 0);
-
 	/* Configure the FMAC */
 	fmac_StartWithTimerIRQ(&hfmac, &sFmacConfig, &htim6, &hdac1);
 //	fmac_StartWithTimerIRQ_DMA(&hfmac, &sFmacConfig, &htim6, &hdac1); //For DMA Config.
@@ -518,23 +500,6 @@ static void MX_GPIO_Init(void) {
 
 /* USER CODE BEGIN 4 */
 
-/**
- * @brief FMAC Output Ready Callback
- * @param hfmac: Pointer to FMAC handle
- *
- * This callback is triggered when FMAC output data is ready.
- * It reads the Q15 filtered result from RDATA, scales it to 12-bit,
- * and updates the DAC output.
- */
-void HAL_FMAC_OutputDataReadyCallback(FMAC_HandleTypeDef *hfmac) {
-	if (__HAL_FMAC_GET_FLAG(hfmac, FMAC_FLAG_YEMPTY) == RESET) // Y buffer has value
-			{
-		int16_t result = hfmac->Instance->RDATA;  // Get filtered Q15 sample
-		// Scale to 12-bit (0–4095)
-		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4);
-		HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dacVal);
-	}
-}
 /* USER CODE END 4 */
 
 /**
