@@ -315,8 +315,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 //			result = hfmac.Instance->RDATA;
 //		}
 //		if (__HAL_FMAC_GET_FLAG(&hfmac, FMAC_FLAG_X1FULL) == RESET) {
-//			hfmac.Instance->WDATA = ((int16_t) q15_input); For IIR filters
-//			hfmac.Instance->WDATA = ((int16_t) q15_input) >> 1;
+//			hfmac.Instance->WDATA = ((int16_t) q15_input);
 //		}
 //		uint32_t dacVal = (uint32_t) (((int32_t) result + 32768) >> 4); // scale to 12-bit to feed into our 12-bit DAC
 
